@@ -154,6 +154,37 @@
             border-radius: 4px;
             border: 1px solid #e8e8e8;
             overflow-x: auto;
+            position: relative;
+        }
+        .table-container::-webkit-scrollbar {
+            height: 12px;
+        }
+        .table-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 6px;
+        }
+        .table-container::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 6px;
+        }
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        .scroll-hint {
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.05));
+            padding: 8px 16px;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            pointer-events: none;
+            z-index: 10;
+        }
+        .scroll-hint::before {
+            content: '← 左右滑动查看更多年度数据 →';
         }
         table {
             width: 100%;
@@ -461,7 +492,7 @@
                 `;
             });
             
-            html += '</tbody></table></div>';
+            html += '</tbody></table><div class="scroll-hint"></div></div>';
             document.getElementById('table-container').innerHTML = html;
         }
         
@@ -546,7 +577,7 @@
                         }
                     });
                     
-                    availableYears = Array.from(allYears).sort((a, b) => a - b);
+                    availableYears = Array.from(allYears).sort((a, b) => b - a);
                     console.log('加载年度收益数据成功，共', Object.keys(yearReturnsMap).length, '个策略');
                     console.log('可用年份:', availableYears);
                 }
