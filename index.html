@@ -447,10 +447,10 @@
                                 <th onclick="sortBy('sharpe_ratio')">夏普比率</th>
                                 <th onclick="sortBy('max_dd')">最大回撤</th>
                                 <th onclick="sortBy('volatility')">波动率</th>
-                                <th onclick="sortBy('create_time')">创建时间</th>
+                                <th onclick="sortBy('start_date')">开始时间</th>
+                                ${yearHeaders}
                                 <th onclick="sortBy('update_time')">更新时间</th>
                                 <th onclick="sortBy('next_trade_date')">下次交易</th>
-                                ${yearHeaders}
                             </tr>
                         </thead>
                         <tbody>
@@ -484,10 +484,10 @@
                         <td class="${getValueClass(s.sharpe_ratio)}">${formatNumber(s.sharpe_ratio, 2)}</td>
                         <td class="down">${formatPercentAbs(s.max_dd)}</td>
                         <td class="${getValueClass(s.volatility)}">${formatPercent(s.volatility)}</td>
-                        <td class="neutral">${s.create_time || '-'}</td>
+                        <td class="neutral">${s.start_date || '-'}</td>
+                        ${yearCells}
                         <td class="neutral">${s.update_time || '-'}</td>
                         <td class="neutral">${s.next_trade_date || '-'}</td>
-                        ${yearCells}
                     </tr>
                 `;
             });
@@ -531,7 +531,7 @@
                         const found = bYearData.yearly_data.find(y => y.year === year);
                         if (found) bVal = found.return_rate || 0;
                     }
-                } else if (currentSort === 'name' || currentSort === 'create_time' || currentSort === 'update_time' || currentSort === 'next_trade_date') {
+                } else if (currentSort === 'name' || currentSort === 'start_date' || currentSort === 'update_time' || currentSort === 'next_trade_date') {
                     const aStr = a[currentSort] || '';
                     const bStr = b[currentSort] || '';
                     return currentOrder === 'desc' ? bStr.localeCompare(aStr) : aStr.localeCompare(bStr);
