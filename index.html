@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A股因子库 - 牛策网</title>
+    <meta name="viewport" content="width=device, initial-scale=1.0">
+    <title>牛策网 - A股因子库</title>
     <style>
         * {
             margin: 0;
@@ -11,7 +11,7 @@
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: #f5f5f5;
             min-height: 100vh;
             color: #333;
@@ -139,17 +139,17 @@
         .refresh-btn {
             padding: 8px 16px;
             background: #1890ff;
+            color: #fff;
             border: none;
             border-radius: 4px;
-            color: #fff;
-            font-size: 14px;
             cursor: pointer;
+            font-size: 14px;
             transition: background 0.2s;
         }
         .refresh-btn:hover {
             background: #40a9ff;
         }
-        .table-wrapper {
+        .table-container {
             background: #fff;
             border-radius: 4px;
             border: 1px solid #e8e8e8;
@@ -158,19 +158,20 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 1100px;
+            font-size: 13px;
+            min-width: 1200px;
         }
         th, td {
-            padding: 12px 12px;
+            padding: 12px 10px;
             text-align: right;
             white-space: nowrap;
-            font-size: 13px;
         }
         th {
             background: #fafafa;
             font-weight: 600;
-            color: #333;
-            border-bottom: 1px solid #e8e8e8;
+            color: #666;
+            position: sticky;
+            top: 0;
             cursor: pointer;
             user-select: none;
         }
@@ -228,6 +229,12 @@
         .footer a {
             color: #1890ff;
             text-decoration: none;
+        }
+        .year-col {
+            background: #f6ffed;
+        }
+        .year-col:hover {
+            background: #e6f7e6;
         }
         @media (max-width: 768px) {
             .container {
@@ -316,10 +323,13 @@
 
     <script>
         let allStrategies = [];
+        let yearReturnsMap = {};
+        let availableYears = [];
         let currentSort = 'ytd';
         let currentOrder = 'desc';
         
         const DATA_URL = 'https://gupiao-1254084492.cos.ap-guangzhou.myqcloud.com/strategies_data.json';
+        const YEAR_RETURN_URL = 'https://raw.githubusercontent.com/yuanxiaobozi/niuce/main/strategy_year.json';
         
         function formatPercent(value) {
             if (value === null || value === undefined) return '-';
@@ -327,6 +337,15 @@
             if (isNaN(num)) return '-';
             const sign = num >= 0 ? '+' : '';
             return sign + num.toFixed(2) + '%';
+        }
+        
+        function formatPercentValue(value) {
+            if (value === null || value === undefined) return '-';
+            const num = parseFloat(value);
+            if (isNaN(num)) return '-';
+            const percent = num * 100;
+            const sign = percent >= 0 ? '+' : '';
+            return sign + percent.toFixed(2) + '%';
         }
         
         function formatPercentAbs(value) {
@@ -350,6 +369,13 @@
             return num > 0 ? 'up' : 'down';
         }
         
+        function getPercentClass(value) {
+            if (value === null || value === undefined) return 'neutral';
+            const num = parseFloat(value);
+            if (isNaN(num) || num === 0) return 'neutral';
+            return num > 0 ? 'up' : 'down';
+        }
+        
         function calculateStats(data) {
             const total = data.length;
             const avgYtd = data.reduce((sum, s) => sum + (s.ytd || 0), 0) / total;
@@ -362,37 +388,58 @@
             document.getElementById('avg-sharpe').textContent = formatNumber(avgSharpe, 2);
         }
         
+        function getYearReturns(strategyId) {
+            return yearReturnsMap[strategyId] || null;
+        }
+        
         function renderTable(data) {
-            if (!data || data.length === 0) {
-                document.getElementById('table-container').innerHTML = '<div class="error">暂无数据</div>';
-                return;
-            }
+            calculateStats(data);
+            
+            let yearHeaders = '';
+            availableYears.forEach(year => {
+                yearHeaders += `<th class="year-col" onclick="sortBy('year_${year}')">${year}年收益</th>`;
+            });
             
             let html = `
-                <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th onclick="sortBy('name')">因子名称</th>
-                            <th onclick="sortBy('day_1')">日收益</th>
-                            <th onclick="sortBy('day_7')">周收益</th>
-                            <th onclick="sortBy('month_1')">月收益</th>
-                            <th onclick="sortBy('month_3')">季收益</th>
-                            <th onclick="sortBy('ytd')">年初至今</th>
-                            <th onclick="sortBy('total_return')">总收益</th>
-                            <th onclick="sortBy('annual_return')">年化收益</th>
-                            <th onclick="sortBy('sharpe_ratio')">夏普比率</th>
-                            <th onclick="sortBy('max_dd')">最大回撤</th>
-                            <th onclick="sortBy('volatility')">波动率</th>
-                            <th onclick="sortBy('create_date')">创建时间</th>
-                            <th onclick="sortBy('update_time')">更新时间</th>
-                            <th onclick="sortBy('next_trade_date')">下次交易</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th onclick="sortBy('name')">因子名称</th>
+                                <th onclick="sortBy('day_1')">日收益</th>
+                                <th onclick="sortBy('day_7')">周收益</th>
+                                <th onclick="sortBy('month_1')">月收益</th>
+                                <th onclick="sortBy('month_3')">季收益</th>
+                                <th onclick="sortBy('ytd')">年初收益</th>
+                                <th onclick="sortBy('total_return')">总收益</th>
+                                <th onclick="sortBy('annual_return')">年化收益</th>
+                                <th onclick="sortBy('sharpe_ratio')">夏普比率</th>
+                                <th onclick="sortBy('max_dd')">最大回撤</th>
+                                <th onclick="sortBy('volatility')">波动率</th>
+                                <th onclick="sortBy('create_time')">创建时间</th>
+                                <th onclick="sortBy('update_time')">更新时间</th>
+                                <th onclick="sortBy('next_trade_date')">下次交易</th>
+                                ${yearHeaders}
+                            </tr>
+                        </thead>
+                        <tbody>
             `;
             
             data.forEach((s) => {
+                const yearData = getYearReturns(s.id);
+                let yearCells = '';
+                availableYears.forEach(year => {
+                    let yearReturn = null;
+                    if (yearData && yearData.yearly_data) {
+                        const found = yearData.yearly_data.find(y => y.year === year);
+                        if (found) {
+                            yearReturn = found.return_rate;
+                        }
+                    }
+                    const cellClass = getPercentClass(yearReturn);
+                    yearCells += `<td class="year-col ${cellClass}">${formatPercentValue(yearReturn)}</td>`;
+                });
+                
                 html += `
                     <tr>
                         <td><span class="strategy-name" title="${s.name}">${s.name}</span></td>
@@ -406,9 +453,10 @@
                         <td class="${getValueClass(s.sharpe_ratio)}">${formatNumber(s.sharpe_ratio, 2)}</td>
                         <td class="down">${formatPercentAbs(s.max_dd)}</td>
                         <td class="${getValueClass(s.volatility)}">${formatPercent(s.volatility)}</td>
-                        <td class="neutral">${s.create_date || '-'}</td>
+                        <td class="neutral">${s.create_time || '-'}</td>
                         <td class="neutral">${s.update_time || '-'}</td>
                         <td class="neutral">${s.next_trade_date || '-'}</td>
+                        ${yearCells}
                     </tr>
                 `;
             });
@@ -436,13 +484,29 @@
             );
             
             filtered.sort((a, b) => {
-                let aVal = a[currentSort] || 0;
-                let bVal = b[currentSort] || 0;
+                let aVal, bVal;
                 
-                if (currentSort === 'name' || currentSort === 'create_date' || currentSort === 'update_time' || currentSort === 'next_trade_date') {
+                if (currentSort.startsWith('year_')) {
+                    const year = parseInt(currentSort.replace('year_', ''));
+                    const aYearData = getYearReturns(a.id);
+                    const bYearData = getYearReturns(b.id);
+                    aVal = 0;
+                    bVal = 0;
+                    if (aYearData && aYearData.yearly_data) {
+                        const found = aYearData.yearly_data.find(y => y.year === year);
+                        if (found) aVal = found.return_rate || 0;
+                    }
+                    if (bYearData && bYearData.yearly_data) {
+                        const found = bYearData.yearly_data.find(y => y.year === year);
+                        if (found) bVal = found.return_rate || 0;
+                    }
+                } else if (currentSort === 'name' || currentSort === 'create_time' || currentSort === 'update_time' || currentSort === 'next_trade_date') {
                     const aStr = a[currentSort] || '';
                     const bStr = b[currentSort] || '';
                     return currentOrder === 'desc' ? bStr.localeCompare(aStr) : aStr.localeCompare(bStr);
+                } else {
+                    aVal = a[currentSort] || 0;
+                    bVal = b[currentSort] || 0;
                 }
                 
                 if (currentSort === 'max_dd' || currentSort === 'volatility') {
@@ -455,16 +519,56 @@
             renderTable(filtered);
         }
         
+        async function loadYearReturns() {
+            try {
+                const response = await fetch(YEAR_RETURN_URL + '?t=' + Date.now());
+                if (!response.ok) {
+                    console.warn('加载年度收益数据失败:', response.status);
+                    return;
+                }
+                const data = await response.json();
+                
+                if (data.strategies && Array.isArray(data.strategies)) {
+                    data.strategies.forEach(s => {
+                        if (s.id) {
+                            yearReturnsMap[s.id] = s;
+                        }
+                    });
+                    
+                    const allYears = new Set();
+                    data.strategies.forEach(s => {
+                        if (s.yearly_data && Array.isArray(s.yearly_data)) {
+                            s.yearly_data.forEach(y => {
+                                if (y.year && y.year <= 2025) {
+                                    allYears.add(y.year);
+                                }
+                            });
+                        }
+                    });
+                    
+                    availableYears = Array.from(allYears).sort((a, b) => a - b);
+                    console.log('加载年度收益数据成功，共', Object.keys(yearReturnsMap).length, '个策略');
+                    console.log('可用年份:', availableYears);
+                }
+            } catch (error) {
+                console.warn('加载年度收益数据失败:', error);
+            }
+        }
+        
         async function loadData() {
             const container = document.getElementById('table-container');
             container.innerHTML = '<div class="loading">正在加载数据...</div>';
             
             try {
-                const response = await fetch(DATA_URL + '?t=' + Date.now());
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
+                const [strategiesRes] = await Promise.all([
+                    fetch(DATA_URL + '?t=' + Date.now()),
+                    loadYearReturns()
+                ]);
+                
+                if (!strategiesRes.ok) {
+                    throw new Error('HTTP ' + strategiesRes.status);
                 }
-                const data = await response.json();
+                const data = await strategiesRes.json();
                 
                 if (data.strategies) {
                     allStrategies = data.strategies;
@@ -475,12 +579,11 @@
                     allStrategies = data;
                 }
                 
-                calculateStats(allStrategies);
                 applyFilters();
                 
             } catch (error) {
                 console.error('加载失败:', error);
-                container.innerHTML = `<div class="error">数据加载失败: ${error.message}</div>`;
+                container.innerHTML = '<div class="error">数据加载失败: ' + error.message + '</div>';
             }
         }
         
