@@ -101,7 +101,21 @@
         .stat-card .value.down {
             color: #52c41a;
         }
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 16px;
+            padding-left: 12px;
+            border-left: 3px solid #1890ff;
+        }
         .charts-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        .charts-row-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
@@ -113,14 +127,18 @@
             padding: 20px;
         }
         .chart-title {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             margin-bottom: 16px;
             color: #333;
         }
         .chart-wrapper {
             position: relative;
-            height: 400px;
+            height: 320px;
+        }
+        .chart-wrapper-sm {
+            position: relative;
+            height: 280px;
         }
         .loading {
             text-align: center;
@@ -135,11 +153,17 @@
         .footer {
             text-align: center;
             padding: 24px 0;
+            margin-top: 24px;
             color: #999;
             font-size: 13px;
         }
-        @media (max-width: 1024px) {
+        @media (max-width: 1200px) {
             .charts-row {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .charts-row, .charts-row-2 {
                 grid-template-columns: 1fr;
             }
         }
@@ -180,6 +204,7 @@
             </div>
         </div>
 
+        <div class="section-title">风险收益散点图</div>
         <div class="charts-row">
             <div class="chart-container">
                 <div class="chart-title">年化收益 vs 最大回撤</div>
@@ -193,6 +218,28 @@
                     <canvas id="sharpeChart"></canvas>
                 </div>
             </div>
+            <div class="chart-container">
+                <div class="chart-title">年化收益 vs 波动率</div>
+                <div class="chart-wrapper">
+                    <canvas id="volChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">收益分布与排名</div>
+        <div class="charts-row-2">
+            <div class="chart-container">
+                <div class="chart-title">年化收益分布</div>
+                <div class="chart-wrapper-sm">
+                    <canvas id="histChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">TOP10 年化收益因子</div>
+                <div class="chart-wrapper-sm">
+                    <canvas id="top10Chart"></canvas>
+                </div>
+            </div>
         </div>
         
         <div class="footer">
@@ -202,8 +249,7 @@
 
     <script>
         const DATA_URL = 'https://gupiao-1254084492.cos.ap-guangzhou.myqcloud.com/strategies_data.json';
-        let ddChart = null;
-        let sharpeChart = null;
+        let charts = {};
         
         function formatPercent(value) {
             if (value === null || value === undefined) return '-';
@@ -232,131 +278,190 @@
         }
         
         function renderCharts(data) {
-            const points = data.map(s => ({
-                x: s.max_dd || 0,
-                y: s.annual_return || 0,
-                sharpe: s.sharpe_ratio || 0,
-                name: s.name
-            }));
+            Object.values(charts).forEach(c => c && c.destroy());
             
-            const sharpePoints = data.map(s => ({
-                x: s.sharpe_ratio || 0,
-                y: s.annual_return || 0,
-                maxDd: s.max_dd || 0,
-                name: s.name
-            }));
+            const scatterData = {
+                dd: data.map(s => ({
+                    x: s.max_dd || 0,
+                    y: s.annual_return || 0,
+                    sharpe: s.sharpe_ratio || 0,
+                    name: s.name
+                })),
+                sharpe: data.map(s => ({
+                    x: s.sharpe_ratio || 0,
+                    y: s.annual_return || 0,
+                    maxDd: s.max_dd || 0,
+                    name: s.name
+                })),
+                vol: data.map(s => ({
+                    x: s.volatility || 0,
+                    y: s.annual_return || 0,
+                    sharpe: s.sharpe_ratio || 0,
+                    name: s.name
+                }))
+            };
             
-            if (ddChart) ddChart.destroy();
-            if (sharpeChart) sharpeChart.destroy();
+            const scatterOptions = (xTitle, xCallback) => ({
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(ctx) {
+                                const p = ctx.raw;
+                                return [
+                                    p.name,
+                                    '年化收益: ' + p.y.toFixed(2) + '%',
+                                    xTitle + ': ' + (xCallback ? xCallback(p.x) : p.x.toFixed(2))
+                                ];
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: { display: true, text: xTitle, font: { size: 11 } },
+                        ticks: { callback: v => xCallback ? xCallback(v) : v }
+                    },
+                    y: {
+                        title: { display: true, text: '年化收益 (%)', font: { size: 11 } },
+                        ticks: { callback: v => v + '%' }
+                    }
+                }
+            });
             
-            const ddCtx = document.getElementById('ddChart').getContext('2d');
-            ddChart = new Chart(ddCtx, {
+            charts.dd = new Chart(document.getElementById('ddChart'), {
                 type: 'scatter',
                 data: {
                     datasets: [{
-                        label: '策略',
-                        data: points,
+                        data: scatterData.dd,
                         backgroundColor: 'rgba(24, 144, 255, 0.6)',
                         borderColor: '#1890ff',
                         borderWidth: 1,
-                        pointRadius: 6,
-                        pointHoverRadius: 8
+                        pointRadius: 5,
+                        pointHoverRadius: 7
+                    }]
+                },
+                options: scatterOptions('最大回撤', v => v.toFixed(1) + '%')
+            });
+            
+            charts.sharpe = new Chart(document.getElementById('sharpeChart'), {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        data: scatterData.sharpe,
+                        backgroundColor: 'rgba(82, 196, 26, 0.6)',
+                        borderColor: '#52c41a',
+                        borderWidth: 1,
+                        pointRadius: 5,
+                        pointHoverRadius: 7
+                    }]
+                },
+                options: scatterOptions('夏普比率', v => v.toFixed(2))
+            });
+            
+            charts.vol = new Chart(document.getElementById('volChart'), {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        data: scatterData.vol,
+                        backgroundColor: 'rgba(250, 173, 20, 0.6)',
+                        borderColor: '#faad14',
+                        borderWidth: 1,
+                        pointRadius: 5,
+                        pointHoverRadius: 7
+                    }]
+                },
+                options: scatterOptions('波动率', v => v.toFixed(1) + '%')
+            });
+            
+            const annualReturns = data.map(s => s.annual_return || 0).sort((a, b) => a - b);
+            const minVal = Math.floor(annualReturns[0] / 5) * 5;
+            const maxVal = Math.ceil(annualReturns[annualReturns.length - 1] / 5) * 5;
+            const binSize = 5;
+            const bins = [];
+            const labels = [];
+            
+            for (let i = minVal; i < maxVal; i += binSize) {
+                labels.push(i + '~' + (i + binSize) + '%');
+                bins.push(data.filter(s => {
+                    const v = s.annual_return || 0;
+                    return v >= i && v < i + binSize;
+                }).length);
+            }
+            
+            charts.hist = new Chart(document.getElementById('histChart'), {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '因子数量',
+                        data: bins,
+                        backgroundColor: 'rgba(24, 144, 255, 0.6)',
+                        borderColor: '#1890ff',
+                        borderWidth: 1
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const p = context.raw;
-                                    return [
-                                        p.name,
-                                        '年化收益: ' + p.y.toFixed(2) + '%',
-                                        '最大回撤: ' + p.x.toFixed(2) + '%',
-                                        '夏普比率: ' + p.sharpe.toFixed(2)
-                                    ];
-                                }
-                            }
-                        }
+                        legend: { display: false }
                     },
                     scales: {
                         x: {
-                            title: {
-                                display: true,
-                                text: '最大回撤 (%)',
-                                font: { size: 12 }
-                            },
-                            ticks: {
-                                callback: v => v + '%'
-                            }
+                            title: { display: true, text: '年化收益区间', font: { size: 11 } },
+                            ticks: { maxRotation: 45, minRotation: 45, font: { size: 10 } }
                         },
                         y: {
-                            title: {
-                                display: true,
-                                text: '年化收益 (%)',
-                                font: { size: 12 }
-                            },
-                            ticks: {
-                                callback: v => v + '%'
-                            }
+                            title: { display: true, text: '因子数量', font: { size: 11 } },
+                            ticks: { stepSize: 1 }
                         }
                     }
                 }
             });
             
-            const sharpeCtx = document.getElementById('sharpeChart').getContext('2d');
-            sharpeChart = new Chart(sharpeCtx, {
-                type: 'scatter',
+            const top10 = [...data].sort((a, b) => (b.annual_return || 0) - (a.annual_return || 0)).slice(0, 10);
+            
+            charts.top10 = new Chart(document.getElementById('top10Chart'), {
+                type: 'bar',
                 data: {
+                    labels: top10.map(s => s.name.length > 8 ? s.name.slice(0, 8) + '...' : s.name),
                     datasets: [{
-                        label: '策略',
-                        data: sharpePoints,
-                        backgroundColor: 'rgba(82, 196, 26, 0.6)',
-                        borderColor: '#52c41a',
-                        borderWidth: 1,
-                        pointRadius: 6,
-                        pointHoverRadius: 8
+                        label: '年化收益',
+                        data: top10.map(s => s.annual_return || 0),
+                        backgroundColor: top10.map((_, i) => {
+                            const colors = ['#f5222d', '#fa541c', '#fa8c16', '#faad14', '#fadb14',
+                                           '#a0d911', '#52c41a', '#13c2c2', '#1890ff', '#2f54eb'];
+                            return colors[i];
+                        }),
+                        borderWidth: 0
                     }]
                 },
                 options: {
+                    indexAxis: 'y',
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
                         legend: { display: false },
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
-                                    const p = context.raw;
-                                    return [
-                                        p.name,
-                                        '年化收益: ' + p.y.toFixed(2) + '%',
-                                        '夏普比率: ' + p.x.toFixed(2),
-                                        '最大回撤: ' + p.maxDd.toFixed(2) + '%'
-                                    ];
+                                label: ctx => '年化收益: ' + ctx.raw.toFixed(2) + '%',
+                                afterLabel: ctx => {
+                                    const s = top10[ctx.dataIndex];
+                                    return ['夏普: ' + (s.sharpe_ratio || 0).toFixed(2), '回撤: ' + (s.max_dd || 0).toFixed(2) + '%'];
                                 }
                             }
                         }
                     },
                     scales: {
                         x: {
-                            title: {
-                                display: true,
-                                text: '夏普比率',
-                                font: { size: 12 }
-                            }
+                            title: { display: true, text: '年化收益 (%)', font: { size: 11 } },
+                            ticks: { callback: v => v + '%' }
                         },
                         y: {
-                            title: {
-                                display: true,
-                                text: '年化收益 (%)',
-                                font: { size: 12 }
-                            },
-                            ticks: {
-                                callback: v => v + '%'
-                            }
+                            ticks: { font: { size: 11 } }
                         }
                     }
                 }
@@ -380,8 +485,8 @@
                 
             } catch (error) {
                 console.error('加载失败:', error);
-                document.querySelector('.charts-row').innerHTML = 
-                    '<div class="error" style="grid-column: span 2;">数据加载失败: ' + error.message + '</div>';
+                document.querySelector('.container').innerHTML = 
+                    '<div class="error">数据加载失败: ' + error.message + '</div>';
             }
         }
         
