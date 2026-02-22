@@ -17,7 +17,7 @@
             color: #e0e0e0;
         }
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -101,16 +101,20 @@
             outline: none;
             border-color: #00d9ff;
         }
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+        }
         table {
             width: 100%;
             border-collapse: collapse;
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-            overflow: hidden;
+            min-width: 1200px;
         }
         th, td {
-            padding: 15px 12px;
+            padding: 12px 10px;
             text-align: right;
+            white-space: nowrap;
         }
         th {
             background: rgba(0, 217, 255, 0.1);
@@ -118,8 +122,9 @@
             color: #00d9ff;
             cursor: pointer;
             user-select: none;
-            white-space: nowrap;
             font-size: 0.85em;
+            position: sticky;
+            top: 0;
         }
         th:hover {
             background: rgba(0, 217, 255, 0.2);
@@ -127,6 +132,9 @@
         th:first-child, td:first-child {
             text-align: left;
             padding-left: 20px;
+            position: sticky;
+            left: 0;
+            background: inherit;
         }
         tr {
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -135,13 +143,17 @@
         tr:hover {
             background: rgba(255,255,255,0.05);
         }
+        tr:hover td:first-child {
+            background: rgba(255,255,255,0.05);
+        }
         .strategy-name {
             font-weight: 500;
             color: #fff;
-            max-width: 200px;
+            max-width: 180px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            display: inline-block;
         }
         .positive {
             color: #00ff88;
@@ -222,10 +234,6 @@
             .search-box input {
                 width: 100%;
             }
-            table {
-                display: block;
-                overflow-x: auto;
-            }
             th, td {
                 padding: 10px 8px;
                 font-size: 0.85em;
@@ -244,6 +252,12 @@
         .refresh-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 20px rgba(0, 217, 255, 0.3);
+        }
+        .highlight-row {
+            background: rgba(0, 255, 136, 0.1) !important;
+        }
+        .highlight-row td:first-child {
+            background: rgba(0, 255, 136, 0.1) !important;
         }
     </style>
 </head>
@@ -265,7 +279,11 @@
             </div>
             <div class="stat-item">
                 <div class="stat-value" id="best-return">-</div>
-                <div class="stat-label">最佳长期收益</div>
+                <div class="stat-label">最佳总收益</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="avg-sharpe">-</div>
+                <div class="stat-label">平均夏普比率</div>
             </div>
         </div>
         
@@ -276,10 +294,13 @@
             <div class="sort-controls">
                 <select id="sort-select">
                     <option value="ytd">按年初收益排序</option>
-                    <option value="long_term">按长期收益排序</option>
+                    <option value="total_return">按总收益排序</option>
+                    <option value="annual_return">按年化收益排序</option>
+                    <option value="sharpe_ratio">按夏普比率排序</option>
                     <option value="month_1">按月收益排序</option>
                     <option value="day_1">按日收益排序</option>
                     <option value="max_dd">按最大回撤排序</option>
+                    <option value="volatility">按波动率排序</option>
                 </select>
                 <button class="refresh-btn" onclick="loadData()">刷新数据</button>
             </div>
@@ -296,6 +317,7 @@
 
     <script>
         let allStrategies = [];
+        let fieldLabels = {};
         let currentSort = 'ytd';
         let currentOrder = 'desc';
         
@@ -309,12 +331,11 @@
             return sign + num.toFixed(2) + '%';
         }
         
-        function formatLongTerm(value) {
+        function formatNumber(value, decimals) {
             if (value === null || value === undefined) return '-';
             const num = parseFloat(value);
             if (isNaN(num)) return '-';
-            const sign = num >= 0 ? '+' : '';
-            return sign + num.toFixed(0) + '%';
+            return num.toFixed(decimals);
         }
         
         function getValueClass(value) {
@@ -327,11 +348,13 @@
         function calculateStats(data) {
             const total = data.length;
             const avgYtd = data.reduce((sum, s) => sum + (s.ytd || 0), 0) / total;
-            const bestReturn = Math.max(...data.map(s => s.long_term || 0));
+            const bestReturn = Math.max(...data.map(s => s.total_return || 0));
+            const avgSharpe = data.reduce((sum, s) => sum + (s.sharpe_ratio || 0), 0) / total;
             
             document.getElementById('total-count').textContent = total;
             document.getElementById('avg-ytd').textContent = formatPercent(avgYtd);
-            document.getElementById('best-return').textContent = formatLongTerm(bestReturn);
+            document.getElementById('best-return').textContent = formatPercent(bestReturn);
+            document.getElementById('avg-sharpe').textContent = formatNumber(avgSharpe, 2);
         }
         
         function renderTable(data) {
@@ -341,39 +364,51 @@
             }
             
             let html = `
+                <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
-                            <th onclick="sortBy('name')">策略名称</th>
+                            <th onclick="sortBy('name')">因子名称</th>
                             <th onclick="sortBy('day_1')">日收益</th>
                             <th onclick="sortBy('day_7')">周收益</th>
                             <th onclick="sortBy('month_1')">月收益</th>
                             <th onclick="sortBy('month_3')">季收益</th>
                             <th onclick="sortBy('ytd')">年初至今</th>
-                            <th onclick="sortBy('long_term')">长期收益</th>
+                            <th onclick="sortBy('total_return')">总收益</th>
+                            <th onclick="sortBy('annual_return')">年化收益</th>
+                            <th onclick="sortBy('sharpe_ratio')">夏普比率</th>
                             <th onclick="sortBy('max_dd')">最大回撤</th>
+                            <th onclick="sortBy('volatility')">波动率</th>
+                            <th onclick="sortBy('next_trade_date')">下次交易</th>
                         </tr>
                     </thead>
                     <tbody>
             `;
             
             data.forEach((s, index) => {
-                const topBadge = index < 3 && currentSort === 'long_term' ? '<span class="badge badge-top">TOP</span>' : '';
+                const isTop3 = index < 3 && (currentSort === 'total_return' || currentSort === 'sharpe_ratio' || currentSort === 'annual_return');
+                const topBadge = isTop3 ? '<span class="badge badge-top">TOP</span>' : '';
+                const rowClass = isTop3 ? 'highlight-row' : '';
+                
                 html += `
-                    <tr>
+                    <tr class="${rowClass}">
                         <td><span class="strategy-name" title="${s.name}">${s.name}</span>${topBadge}</td>
                         <td class="${getValueClass(s.day_1)}">${formatPercent(s.day_1)}</td>
                         <td class="${getValueClass(s.day_7)}">${formatPercent(s.day_7)}</td>
                         <td class="${getValueClass(s.month_1)}">${formatPercent(s.month_1)}</td>
                         <td class="${getValueClass(s.month_3)}">${formatPercent(s.month_3)}</td>
                         <td class="${getValueClass(s.ytd)}">${formatPercent(s.ytd)}</td>
-                        <td class="${getValueClass(s.long_term)}">${formatLongTerm(s.long_term)}</td>
+                        <td class="${getValueClass(s.total_return)}">${formatPercent(s.total_return)}</td>
+                        <td class="${getValueClass(s.annual_return)}">${formatPercent(s.annual_return)}</td>
+                        <td class="${getValueClass(s.sharpe_ratio)}">${formatNumber(s.sharpe_ratio, 2)}</td>
                         <td class="negative">${formatPercent(s.max_dd)}</td>
+                        <td class="${getValueClass(s.volatility)}">${formatPercent(s.volatility)}</td>
+                        <td class="neutral">${s.next_trade_date || '-'}</td>
                     </tr>
                 `;
             });
             
-            html += '</tbody></table>';
+            html += '</tbody></table></div>';
             document.getElementById('table-container').innerHTML = html;
         }
         
@@ -405,7 +440,13 @@
                         : a.name.localeCompare(b.name);
                 }
                 
-                if (currentSort === 'max_dd') {
+                if (currentSort === 'next_trade_date') {
+                    return currentOrder === 'desc' 
+                        ? (b.next_trade_date || '').localeCompare(a.next_trade_date || '')
+                        : (a.next_trade_date || '').localeCompare(b.next_trade_date || '');
+                }
+                
+                if (currentSort === 'max_dd' || currentSort === 'volatility') {
                     return currentOrder === 'desc' ? aVal - bVal : bVal - aVal;
                 }
                 
@@ -426,21 +467,28 @@
                 }
                 const data = await response.json();
                 
-                allStrategies = data;
-                calculateStats(data);
+                if (data.strategies) {
+                    allStrategies = data.strategies;
+                    fieldLabels = data.field_labels || {};
+                    
+                    if (data.fetch_time) {
+                        document.getElementById('update-time').textContent = 
+                            '最后更新: ' + data.fetch_time;
+                    }
+                } else {
+                    allStrategies = data;
+                }
+                
+                calculateStats(allStrategies);
                 applyFilters();
                 
-                if (data.length > 0 && data[0].update_time) {
-                    document.getElementById('update-time').textContent = 
-                        '最后更新: ' + data[0].update_time;
-                }
             } catch (error) {
                 console.error('加载失败:', error);
                 container.innerHTML = `
                     <div class="error">
                         <p>数据加载失败: ${error.message}</p>
                         <p style="margin-top:10px;color:#888;font-size:0.9em;">
-                            请确保 strategies_data.json 文件存在于此目录
+                            请确保 strategies_data.json 文件存在
                         </p>
                     </div>
                 `;
