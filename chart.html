@@ -200,8 +200,8 @@
         </div>
 
         <div class="chart-container">
-            <div class="chart-title">TOP10 年化收益因子</div>
-            <div class="chart-wrapper">
+            <div class="chart-title">TOP30 年化收益因子</div>
+            <div class="chart-wrapper" style="height: 600px;">
                 <canvas id="top10Chart"></canvas>
             </div>
         </div>
@@ -386,19 +386,23 @@
                 }
             });
             
-            const top10 = [...data].sort((a, b) => (b.annual_return || 0) - (a.annual_return || 0)).slice(0, 10);
+            const top10 = [...data].sort((a, b) => (b.annual_return || 0) - (a.annual_return || 0)).slice(0, 30);
             
             charts.top10 = new Chart(document.getElementById('top10Chart'), {
                 type: 'bar',
                 data: {
-                    labels: top10.map(s => s.name.length > 10 ? s.name.slice(0, 10) + '...' : s.name),
+                    labels: top10.map(s => s.name.length > 12 ? s.name.slice(0, 12) + '...' : s.name),
                     datasets: [{
                         label: '年化收益',
                         data: top10.map(s => s.annual_return || 0),
                         backgroundColor: top10.map((_, i) => {
                             const colors = ['#f5222d', '#fa541c', '#fa8c16', '#faad14', '#fadb14',
-                                           '#a0d911', '#52c41a', '#13c2c2', '#1890ff', '#2f54eb'];
-                            return colors[i];
+                                           '#a0d911', '#52c41a', '#13c2c2', '#1890ff', '#2f54eb',
+                                           '#722ed1', '#eb2f96', '#f5222d', '#fa541c', '#fa8c16',
+                                           '#faad14', '#fadb14', '#a0d911', '#52c41a', '#13c2c2',
+                                           '#1890ff', '#2f54eb', '#722ed1', '#eb2f96', '#f5222d',
+                                           '#fa541c', '#fa8c16', '#faad14', '#fadb14', '#a0d911'];
+                            return colors[i % colors.length];
                         }),
                         borderWidth: 0
                     }]
