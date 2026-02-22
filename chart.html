@@ -317,7 +317,7 @@
         
         function getQuadrantColor(annualReturn, maxDd, medianAnnual, medianDd) {
             const isHighReturn = annualReturn >= medianAnnual;
-            const isLowDd = maxDd <= medianDd;
+            const isLowDd = maxDd >= medianDd;
             
             if (isHighReturn && isLowDd) return '#52c41a';
             if (isHighReturn && !isLowDd) return '#faad14';
@@ -411,8 +411,7 @@
                                 callback: function(value) {
                                     return value + '%';
                                 }
-                            },
-                            reverse: true
+                            }
                         },
                         y: {
                             title: {
