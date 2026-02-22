@@ -123,31 +123,41 @@
             gap: 12px;
             align-items: center;
         }
-        .sort-controls select {
-            padding: 8px 12px;
+        .top300-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 16px;
+            background: #fff;
             border: 1px solid #d9d9d9;
             border-radius: 4px;
-            background: #fff;
-            color: #333;
             font-size: 14px;
-            cursor: pointer;
+            color: #333;
+            transition: all 0.2s;
         }
-        .sort-controls select:focus {
-            outline: none;
+        .top300-checkbox:hover {
             border-color: #1890ff;
         }
-        .refresh-btn {
-            padding: 8px 16px;
-            background: #1890ff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
+        .top300-checkbox input {
+            width: 16px;
+            height: 16px;
             cursor: pointer;
-            font-size: 14px;
-            transition: background 0.2s;
         }
-        .refresh-btn:hover {
-            background: #40a9ff;
+        .top300-checkbox.checked {
+            background: #e6f7ff;
+            border-color: #1890ff;
+            color: #1890ff;
+        }
+        .sort-indicator {
+            display: inline-block;
+            margin-left: 4px;
+            font-size: 10px;
+            opacity: 0.5;
+        }
+        th.sorted .sort-indicator {
+            opacity: 1;
+            color: #1890ff;
         }
         .table-container {
             background: #fff;
@@ -349,17 +359,10 @@
                 <input type="text" id="search-input" placeholder="搜索因子名称...">
             </div>
             <div class="sort-controls">
-                <select id="sort-select">
-                    <option value="ytd">按年初收益排序</option>
-                    <option value="total_return">按总收益排序</option>
-                    <option value="annual_return">按年化收益排序</option>
-                    <option value="sharpe_ratio">按夏普比率排序</option>
-                    <option value="month_1">按月收益排序</option>
-                    <option value="day_1">按日收益排序</option>
-                    <option value="max_dd">按最大回撤排序</option>
-                    <option value="volatility">按波动率排序</option>
-                </select>
-                <button class="refresh-btn" onclick="loadData()">刷新数据</button>
+                <label class="top300-checkbox" id="top300-label">
+                    <input type="checkbox" id="top300-checkbox">
+                    <span>只显示年化收益TOP300</span>
+                </label>
             </div>
         </div>
         
@@ -376,8 +379,9 @@
         let allStrategies = [];
         let yearReturnsMap = {};
         let availableYears = [];
-        let currentSort = 'ytd';
+        let currentSort = 'annual_return';
         let currentOrder = 'desc';
+        let showTop300 = localStorage.getItem('showTop300') !== 'false';
         
         const DATA_URL = 'https://gupiao-1254084492.cos.ap-guangzhou.myqcloud.com/strategies_data.json';
         const YEAR_RETURN_URL = 'https://raw.githubusercontent.com/yuanxiaobozi/niuce/main/strategy_year.json';
@@ -443,12 +447,23 @@
             return yearReturnsMap[strategyId] || null;
         }
         
+        function getSortIndicator(field) {
+            if (currentSort !== field) return '<span class="sort-indicator">↕</span>';
+            return currentOrder === 'desc' 
+                ? '<span class="sort-indicator">↓</span>' 
+                : '<span class="sort-indicator">↑</span>';
+        }
+        
+        function getHeaderClass(field) {
+            return currentSort === field ? 'sorted' : '';
+        }
+        
         function renderTable(data) {
             calculateStats(data);
             
             let yearHeaders = '';
             availableYears.forEach(year => {
-                yearHeaders += `<th class="year-col" onclick="sortBy('year_${year}')">${year}年收益</th>`;
+                yearHeaders += `<th class="year-col ${getHeaderClass('year_' + year)}" onclick="sortBy('year_${year}')">${year}年收益${getSortIndicator('year_' + year)}</th>`;
             });
             
             let html = `
@@ -456,21 +471,21 @@
                     <table>
                         <thead>
                             <tr>
-                                <th onclick="sortBy('name')">因子名称</th>
-                                <th onclick="sortBy('day_1')">日收益</th>
-                                <th onclick="sortBy('day_7')">周收益</th>
-                                <th onclick="sortBy('month_1')">月收益</th>
-                                <th onclick="sortBy('month_3')">季收益</th>
-                                <th onclick="sortBy('ytd')">年初收益</th>
-                                <th onclick="sortBy('total_return')">总收益</th>
-                                <th onclick="sortBy('annual_return')">年化收益</th>
-                                <th onclick="sortBy('sharpe_ratio')">夏普比率</th>
-                                <th onclick="sortBy('max_dd')">最大回撤</th>
-                                <th onclick="sortBy('volatility')">波动率</th>
-                                <th onclick="sortBy('start_date')">开始时间</th>
+                                <th class="${getHeaderClass('name')}" onclick="sortBy('name')">因子名称${getSortIndicator('name')}</th>
+                                <th class="${getHeaderClass('day_1')}" onclick="sortBy('day_1')">日收益${getSortIndicator('day_1')}</th>
+                                <th class="${getHeaderClass('day_7')}" onclick="sortBy('day_7')">周收益${getSortIndicator('day_7')}</th>
+                                <th class="${getHeaderClass('month_1')}" onclick="sortBy('month_1')">月收益${getSortIndicator('month_1')}</th>
+                                <th class="${getHeaderClass('month_3')}" onclick="sortBy('month_3')">季收益${getSortIndicator('month_3')}</th>
+                                <th class="${getHeaderClass('ytd')}" onclick="sortBy('ytd')">年初收益${getSortIndicator('ytd')}</th>
+                                <th class="${getHeaderClass('total_return')}" onclick="sortBy('total_return')">总收益${getSortIndicator('total_return')}</th>
+                                <th class="${getHeaderClass('annual_return')}" onclick="sortBy('annual_return')">年化收益${getSortIndicator('annual_return')}</th>
+                                <th class="${getHeaderClass('sharpe_ratio')}" onclick="sortBy('sharpe_ratio')">夏普比率${getSortIndicator('sharpe_ratio')}</th>
+                                <th class="${getHeaderClass('max_dd')}" onclick="sortBy('max_dd')">最大回撤${getSortIndicator('max_dd')}</th>
+                                <th class="${getHeaderClass('volatility')}" onclick="sortBy('volatility')">波动率${getSortIndicator('volatility')}</th>
+                                <th class="${getHeaderClass('start_date')}" onclick="sortBy('start_date')">开始时间${getSortIndicator('start_date')}</th>
                                 ${yearHeaders}
-                                <th onclick="sortBy('update_time')">更新时间</th>
-                                <th onclick="sortBy('next_trade_date')">下次交易</th>
+                                <th class="${getHeaderClass('update_time')}" onclick="sortBy('update_time')">更新时间${getSortIndicator('update_time')}</th>
+                                <th class="${getHeaderClass('next_trade_date')}" onclick="sortBy('next_trade_date')">下次交易${getSortIndicator('next_trade_date')}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -559,7 +574,6 @@
                 currentSort = field;
                 currentOrder = 'desc';
             }
-            document.getElementById('sort-select').value = field;
             applyFilters();
         }
         
@@ -602,6 +616,10 @@
                 
                 return currentOrder === 'desc' ? bVal - aVal : aVal - bVal;
             });
+            
+            if (showTop300) {
+                filtered = filtered.slice(0, 300);
+            }
             
             renderTable(filtered);
         }
@@ -676,11 +694,21 @@
         
         document.getElementById('search-input').addEventListener('input', applyFilters);
         
-        document.getElementById('sort-select').addEventListener('change', function() {
-            currentSort = this.value;
-            currentOrder = 'desc';
+        document.getElementById('top300-checkbox').addEventListener('change', function() {
+            showTop300 = this.checked;
+            localStorage.setItem('showTop300', showTop300);
+            document.getElementById('top300-label').classList.toggle('checked', showTop300);
             applyFilters();
         });
+        
+        function initTop300Checkbox() {
+            const checkbox = document.getElementById('top300-checkbox');
+            const label = document.getElementById('top300-label');
+            checkbox.checked = showTop300;
+            label.classList.toggle('checked', showTop300);
+        }
+        
+        initTop300Checkbox();
         
         loadData();
     </script>
