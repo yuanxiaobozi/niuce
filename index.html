@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单因子策略库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+        }
+        header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        .update-time {
+            color: #888;
+            font-size: 0.9em;
+        }
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #00ff88;
+        }
+        .stat-label {
+            font-size: 0.85em;
+            color: #888;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+        .search-box input {
+            padding: 10px 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            width: 250px;
+            font-size: 14px;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: #00d9ff;
+        }
+        .sort-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .sort-controls select {
+            padding: 10px 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .sort-controls select:focus {
+            outline: none;
+            border-color: #00d9ff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px 12px;
+            text-align: right;
+        }
+        th {
+            background: rgba(0, 217, 255, 0.1);
+            font-weight: 600;
+            color: #00d9ff;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+            font-size: 0.85em;
+        }
+        th:hover {
+            background: rgba(0, 217, 255, 0.2);
+        }
+        th:first-child, td:first-child {
+            text-align: left;
+            padding-left: 20px;
+        }
+        tr {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: background 0.2s;
+        }
+        tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .strategy-name {
+            font-weight: 500;
+            color: #fff;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .positive {
+            color: #00ff88;
+        }
+        .negative {
+            color: #ff4757;
+        }
+        .neutral {
+            color: #888;
+        }
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #888;
+        }
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #00d9ff;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #ff4757;
+            background: rgba(255,71,87,0.1);
+            border-radius: 12px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            margin-left: 8px;
+        }
+        .badge-top {
+            background: linear-gradient(90deg, #ffd700, #ffaa00);
+            color: #000;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        footer a {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            .stats-bar {
+                gap: 20px;
+            }
+            .stat-value {
+                font-size: 1.4em;
+            }
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-box input {
+                width: 100%;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            th, td {
+                padding: 10px 8px;
+                font-size: 0.85em;
+            }
+        }
+        .refresh-btn {
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>单因子策略库</h1>
+            <p class="update-time" id="update-time">数据加载中...</p>
+        </header>
+        
+        <div class="stats-bar" id="stats-bar">
+            <div class="stat-item">
+                <div class="stat-value" id="total-count">-</div>
+                <div class="stat-label">策略总数</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="avg-ytd">-</div>
+                <div class="stat-label">平均年初收益</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="best-return">-</div>
+                <div class="stat-label">最佳长期收益</div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="搜索策略名称...">
+            </div>
+            <div class="sort-controls">
+                <select id="sort-select">
+                    <option value="ytd">按年初收益排序</option>
+                    <option value="long_term">按长期收益排序</option>
+                    <option value="month_1">按月收益排序</option>
+                    <option value="day_1">按日收益排序</option>
+                    <option value="max_dd">按最大回撤排序</option>
+                </select>
+                <button class="refresh-btn" onclick="loadData()">刷新数据</button>
+            </div>
+        </div>
+        
+        <div id="table-container">
+            <div class="loading">正在加载数据</div>
+        </div>
+        
+        <footer>
+            <p>数据来源：<a href="https://guorn.com/user/strategy?uid=13496" target="_blank">果仁网</a> | 自动更新于腾讯云函数</p>
+        </footer>
+    </div>
+
+    <script>
+        let allStrategies = [];
+        let currentSort = 'ytd';
+        let currentOrder = 'desc';
+        
+        const DATA_URL = 'https://gupiao-1254084492.cos.ap-guangzhou.myqcloud.com/strategies_data.json';
+        
+        function formatPercent(value) {
+            if (value === null || value === undefined) return '-';
+            const num = parseFloat(value);
+            if (isNaN(num)) return '-';
+            const sign = num >= 0 ? '+' : '';
+            return sign + num.toFixed(2) + '%';
+        }
+        
+        function formatLongTerm(value) {
+            if (value === null || value === undefined) return '-';
+            const num = parseFloat(value);
+            if (isNaN(num)) return '-';
+            const sign = num >= 0 ? '+' : '';
+            return sign + num.toFixed(0) + '%';
+        }
+        
+        function getValueClass(value) {
+            if (value === null || value === undefined) return 'neutral';
+            const num = parseFloat(value);
+            if (isNaN(num) || num === 0) return 'neutral';
+            return num > 0 ? 'positive' : 'negative';
+        }
+        
+        function calculateStats(data) {
+            const total = data.length;
+            const avgYtd = data.reduce((sum, s) => sum + (s.ytd || 0), 0) / total;
+            const bestReturn = Math.max(...data.map(s => s.long_term || 0));
+            
+            document.getElementById('total-count').textContent = total;
+            document.getElementById('avg-ytd').textContent = formatPercent(avgYtd);
+            document.getElementById('best-return').textContent = formatLongTerm(bestReturn);
+        }
+        
+        function renderTable(data) {
+            if (!data || data.length === 0) {
+                document.getElementById('table-container').innerHTML = '<div class="error">暂无数据</div>';
+                return;
+            }
+            
+            let html = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th onclick="sortBy('name')">策略名称</th>
+                            <th onclick="sortBy('day_1')">日收益</th>
+                            <th onclick="sortBy('day_7')">周收益</th>
+                            <th onclick="sortBy('month_1')">月收益</th>
+                            <th onclick="sortBy('month_3')">季收益</th>
+                            <th onclick="sortBy('ytd')">年初至今</th>
+                            <th onclick="sortBy('long_term')">长期收益</th>
+                            <th onclick="sortBy('max_dd')">最大回撤</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            data.forEach((s, index) => {
+                const topBadge = index < 3 && currentSort === 'long_term' ? '<span class="badge badge-top">TOP</span>' : '';
+                html += `
+                    <tr>
+                        <td><span class="strategy-name" title="${s.name}">${s.name}</span>${topBadge}</td>
+                        <td class="${getValueClass(s.day_1)}">${formatPercent(s.day_1)}</td>
+                        <td class="${getValueClass(s.day_7)}">${formatPercent(s.day_7)}</td>
+                        <td class="${getValueClass(s.month_1)}">${formatPercent(s.month_1)}</td>
+                        <td class="${getValueClass(s.month_3)}">${formatPercent(s.month_3)}</td>
+                        <td class="${getValueClass(s.ytd)}">${formatPercent(s.ytd)}</td>
+                        <td class="${getValueClass(s.long_term)}">${formatLongTerm(s.long_term)}</td>
+                        <td class="negative">${formatPercent(s.max_dd)}</td>
+                    </tr>
+                `;
+            });
+            
+            html += '</tbody></table>';
+            document.getElementById('table-container').innerHTML = html;
+        }
+        
+        function sortBy(field) {
+            if (currentSort === field) {
+                currentOrder = currentOrder === 'desc' ? 'asc' : 'desc';
+            } else {
+                currentSort = field;
+                currentOrder = 'desc';
+            }
+            document.getElementById('sort-select').value = field;
+            applyFilters();
+        }
+        
+        function applyFilters() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            
+            let filtered = allStrategies.filter(s => 
+                s.name.toLowerCase().includes(searchTerm)
+            );
+            
+            filtered.sort((a, b) => {
+                let aVal = a[currentSort] || 0;
+                let bVal = b[currentSort] || 0;
+                
+                if (currentSort === 'name') {
+                    return currentOrder === 'desc' 
+                        ? b.name.localeCompare(a.name)
+                        : a.name.localeCompare(b.name);
+                }
+                
+                if (currentSort === 'max_dd') {
+                    return currentOrder === 'desc' ? aVal - bVal : bVal - aVal;
+                }
+                
+                return currentOrder === 'desc' ? bVal - aVal : aVal - bVal;
+            });
+            
+            renderTable(filtered);
+        }
+        
+        async function loadData() {
+            const container = document.getElementById('table-container');
+            container.innerHTML = '<div class="loading">正在加载数据</div>';
+            
+            try {
+                const response = await fetch(DATA_URL + '?t=' + Date.now());
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                const data = await response.json();
+                
+                allStrategies = data;
+                calculateStats(data);
+                applyFilters();
+                
+                if (data.length > 0 && data[0].update_time) {
+                    document.getElementById('update-time').textContent = 
+                        '最后更新: ' + data[0].update_time;
+                }
+            } catch (error) {
+                console.error('加载失败:', error);
+                container.innerHTML = `
+                    <div class="error">
+                        <p>数据加载失败: ${error.message}</p>
+                        <p style="margin-top:10px;color:#888;font-size:0.9em;">
+                            请确保 strategies_data.json 文件存在于此目录
+                        </p>
+                    </div>
+                `;
+            }
+        }
+        
+        document.getElementById('search-input').addEventListener('input', applyFilters);
+        
+        document.getElementById('sort-select').addEventListener('change', function() {
+            currentSort = this.value;
+            currentOrder = 'desc';
+            applyFilters();
+        });
+        
+        loadData();
+    </script>
+</body>
+</html>
