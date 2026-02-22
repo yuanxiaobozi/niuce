@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>因子风险收益图 - 牛策网</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            color: #333;
+        }
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 16px 0;
+        }
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1890ff;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #666;
+            font-size: 14px;
+            margin-left: 12px;
+            font-weight: normal;
+        }
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+        .nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .nav a:hover {
+            color: #1890ff;
+            background: #f0f0f0;
+        }
+        .nav a.active {
+            color: #1890ff;
+            background: #e6f7ff;
+        }
+        .update-time {
+            color: #999;
+            font-size: 13px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .chart-container {
+            background: #fff;
+            border-radius: 4px;
+            border: 1px solid #e8e8e8;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .chart-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #333;
+        }
+        .chart-wrapper {
+            position: relative;
+            height: 500px;
+        }
+        .legend {
+            display: flex;
+            gap: 24px;
+            margin-top: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #666;
+        }
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .stats-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            background: #fff;
+            border-radius: 4px;
+            border: 1px solid #e8e8e8;
+            padding: 16px 20px;
+            flex: 1;
+            min-width: 150px;
+        }
+        .stat-card .label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+        .stat-card .value {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1890ff;
+        }
+        .stat-card .value.up {
+            color: #f5222d;
+        }
+        .stat-card .value.down {
+            color: #52c41a;
+        }
+        .tooltip-custom {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            z-index: 100;
+            display: none;
+        }
+        .loading {
+            text-align: center;
+            padding: 60px;
+            color: #999;
+        }
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #f5222d;
+        }
+        .footer {
+            text-align: center;
+            padding: 24px 0;
+            color: #999;
+            font-size: 13px;
+        }
+        .quadrant-info {
+            background: #fff;
+            border-radius: 4px;
+            border: 1px solid #e8e8e8;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+        }
+        .quadrant-info h3 {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        .quadrant-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .quadrant-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 13px;
+        }
+        .quadrant-item .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+        .quadrant-item .text {
+            color: #666;
+        }
+        .quadrant-item .text strong {
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .chart-wrapper {
+                height: 400px;
+            }
+            .quadrant-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                牛策网
+                <span>A股因子库</span>
+            </a>
+            <div class="nav">
+                <a href="index.html">因子列表</a>
+                <a href="chart.html" class="active">风险收益图</a>
+            </div>
+            <div class="update-time" id="update-time">数据加载中...</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="label">策略总数</div>
+                <div class="value" id="total-count">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">平均年化收益</div>
+                <div class="value up" id="avg-annual">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">平均最大回撤</div>
+                <div class="value down" id="avg-dd">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">最佳夏普比率</div>
+                <div class="value" id="best-sharpe">-</div>
+            </div>
+        </div>
+
+        <div class="quadrant-info">
+            <h3>象限说明</h3>
+            <div class="quadrant-grid">
+                <div class="quadrant-item">
+                    <div class="dot" style="background: #52c41a;"></div>
+                    <div class="text"><strong>右上（优选）：</strong>高收益、低回撤，风险收益比最佳</div>
+                </div>
+                <div class="quadrant-item">
+                    <div class="dot" style="background: #faad14;"></div>
+                    <div class="text"><strong>左上（激进）：</strong>高收益、高回撤，适合风险承受能力强的投资者</div>
+                </div>
+                <div class="quadrant-item">
+                    <div class="dot" style="background: #1890ff;"></div>
+                    <div class="text"><strong>右下（稳健）：</strong>低收益、低回撤，适合保守型投资者</div>
+                </div>
+                <div class="quadrant-item">
+                    <div class="dot" style="background: #ff4d4f;"></div>
+                    <div class="text"><strong>左下（规避）：</strong>低收益、高回撤，风险收益比差</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-title">年化收益 vs 最大回撤 散点图</div>
+            <div class="chart-wrapper">
+                <canvas id="scatterChart"></canvas>
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: #52c41a;"></div>
+                    <span>优选（高收益低回撤）</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: #faad14;"></div>
+                    <span>激进（高收益高回撤）</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: #1890ff;"></div>
+                    <span>稳健（低收益低回撤）</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot" style="background: #ff4d4f;"></div>
+                    <span>规避（低收益高回撤）</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            数据来源：<a href="https://guorn.com/user/strategy?uid=13496" target="_blank">果仁网</a>
+        </div>
+    </div>
+
+    <script>
+        const DATA_URL = 'https://gupiao-1254084492.cos.ap-guangzhou.myqcloud.com/strategies_data.json';
+        let chart = null;
+        
+        function formatPercent(value) {
+            if (value === null || value === undefined) return '-';
+            const num = parseFloat(value);
+            if (isNaN(num)) return '-';
+            return num.toFixed(2) + '%';
+        }
+        
+        function formatNumber(value, decimals) {
+            if (value === null || value === undefined) return '-';
+            const num = parseFloat(value);
+            if (isNaN(num)) return '-';
+            return num.toFixed(decimals);
+        }
+        
+        function getQuadrantColor(annualReturn, maxDd, medianAnnual, medianDd) {
+            const isHighReturn = annualReturn >= medianAnnual;
+            const isLowDd = maxDd <= medianDd;
+            
+            if (isHighReturn && isLowDd) return '#52c41a';
+            if (isHighReturn && !isLowDd) return '#faad14';
+            if (!isHighReturn && isLowDd) return '#1890ff';
+            return '#ff4d4f';
+        }
+        
+        function calculateStats(data) {
+            const total = data.length;
+            const avgAnnual = data.reduce((sum, s) => sum + (s.annual_return || 0), 0) / total;
+            const avgDd = data.reduce((sum, s) => sum + (s.max_dd || 0), 0) / total;
+            const bestSharpe = Math.max(...data.map(s => s.sharpe_ratio || 0));
+            
+            document.getElementById('total-count').textContent = total;
+            document.getElementById('avg-annual').textContent = formatPercent(avgAnnual);
+            document.getElementById('avg-dd').textContent = formatPercent(avgDd);
+            document.getElementById('best-sharpe').textContent = formatNumber(bestSharpe, 2);
+            
+            return { avgAnnual, avgDd };
+        }
+        
+        function renderChart(data) {
+            const ctx = document.getElementById('scatterChart').getContext('2d');
+            
+            const annualReturns = data.map(s => s.annual_return || 0);
+            const maxDds = data.map(s => s.max_dd || 0);
+            const medianAnnual = annualReturns.sort((a, b) => a - b)[Math.floor(annualReturns.length / 2)];
+            const medianDd = maxDds.sort((a, b) => a - b)[Math.floor(maxDds.length / 2)];
+            
+            const datasets = [
+                { label: '优选', data: [], backgroundColor: '#52c41a' },
+                { label: '激进', data: [], backgroundColor: '#faad14' },
+                { label: '稳健', data: [], backgroundColor: '#1890ff' },
+                { label: '规避', data: [], backgroundColor: '#ff4d4f' }
+            ];
+            
+            data.forEach(s => {
+                const annualReturn = s.annual_return || 0;
+                const maxDd = s.max_dd || 0;
+                const color = getQuadrantColor(annualReturn, maxDd, medianAnnual, medianDd);
+                
+                const point = {
+                    x: maxDd,
+                    y: annualReturn,
+                    name: s.name,
+                    sharpe: s.sharpe_ratio
+                };
+                
+                if (color === '#52c41a') datasets[0].data.push(point);
+                else if (color === '#faad14') datasets[1].data.push(point);
+                else if (color === '#1890ff') datasets[2].data.push(point);
+                else datasets[3].data.push(point);
+            });
+            
+            if (chart) {
+                chart.destroy();
+            }
+            
+            chart = new Chart(ctx, {
+                type: 'scatter',
+                data: { datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const point = context.raw;
+                                    return [
+                                        point.name,
+                                        '年化收益: ' + point.y.toFixed(2) + '%',
+                                        '最大回撤: ' + point.x.toFixed(2) + '%',
+                                        '夏普比率: ' + (point.sharpe ? point.sharpe.toFixed(2) : '-')
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: '最大回撤 (%)',
+                                font: { size: 13 }
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            reverse: true
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: '年化收益 (%)',
+                                font: { size: 13 }
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        async function loadData() {
+            try {
+                const response = await fetch(DATA_URL + '?t=' + Date.now());
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                const data = await response.json();
+                
+                let strategies = data.strategies || data;
+                
+                if (data.fetch_time) {
+                    document.getElementById('update-time').textContent = '最后更新: ' + data.fetch_time;
+                }
+                
+                calculateStats(strategies);
+                renderChart(strategies);
+                
+            } catch (error) {
+                console.error('加载失败:', error);
+                document.querySelector('.chart-wrapper').innerHTML = 
+                    '<div class="error">数据加载失败: ' + error.message + '</div>';
+            }
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>
