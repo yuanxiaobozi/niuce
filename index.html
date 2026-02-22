@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>单因子策略库</title>
+    <title>A股因子库 - 牛策网</title>
     <style>
         * {
             margin: 0;
@@ -12,220 +12,210 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: #f5f5f5;
             min-height: 100vh;
-            color: #e0e0e0;
+            color: #333;
+        }
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 16px 0;
+        }
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1890ff;
+        }
+        .logo span {
+            color: #666;
+            font-size: 14px;
+            margin-left: 12px;
+            font-weight: normal;
+        }
+        .update-time {
+            color: #999;
+            font-size: 13px;
         }
         .container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
-        header {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 30px;
-        }
-        header h1 {
-            font-size: 2.5em;
-            background: linear-gradient(90deg, #00d9ff, #00ff88);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-        }
-        .update-time {
-            color: #888;
-            font-size: 0.9em;
-        }
         .stats-bar {
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 20px 0;
-            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 16px;
+            background: #fff;
+            padding: 16px 20px;
+            border-radius: 4px;
+            border: 1px solid #e8e8e8;
         }
         .stat-item {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .stat-value {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #00ff88;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1890ff;
+        }
+        .stat-value.up {
+            color: #f5222d;
+        }
+        .stat-value.down {
+            color: #52c41a;
         }
         .stat-label {
-            font-size: 0.85em;
-            color: #888;
+            font-size: 13px;
+            color: #666;
         }
         .controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             flex-wrap: wrap;
-            gap: 15px;
-        }
-        .search-box {
-            display: flex;
-            gap: 10px;
+            gap: 12px;
         }
         .search-box input {
-            padding: 10px 15px;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            background: rgba(255,255,255,0.05);
-            color: #fff;
-            width: 250px;
+            padding: 8px 12px;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            width: 240px;
             font-size: 14px;
+            transition: border-color 0.2s;
         }
         .search-box input:focus {
             outline: none;
-            border-color: #00d9ff;
+            border-color: #1890ff;
         }
         .sort-controls {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             align-items: center;
         }
         .sort-controls select {
-            padding: 10px 15px;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            background: rgba(255,255,255,0.05);
-            color: #fff;
+            padding: 8px 12px;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            background: #fff;
+            color: #333;
             font-size: 14px;
             cursor: pointer;
         }
         .sort-controls select:focus {
             outline: none;
-            border-color: #00d9ff;
+            border-color: #1890ff;
+        }
+        .refresh-btn {
+            padding: 8px 16px;
+            background: #1890ff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .refresh-btn:hover {
+            background: #40a9ff;
         }
         .table-wrapper {
+            background: #fff;
+            border-radius: 4px;
+            border: 1px solid #e8e8e8;
             overflow-x: auto;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.03);
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 1200px;
+            min-width: 1100px;
         }
         th, td {
-            padding: 12px 10px;
+            padding: 12px 12px;
             text-align: right;
             white-space: nowrap;
+            font-size: 13px;
         }
         th {
-            background: rgba(0, 217, 255, 0.1);
+            background: #fafafa;
             font-weight: 600;
-            color: #00d9ff;
+            color: #333;
+            border-bottom: 1px solid #e8e8e8;
             cursor: pointer;
             user-select: none;
-            font-size: 0.85em;
-            position: sticky;
-            top: 0;
         }
         th:hover {
-            background: rgba(0, 217, 255, 0.2);
+            background: #f0f0f0;
         }
         th:first-child, td:first-child {
             text-align: left;
-            padding-left: 20px;
-            position: sticky;
-            left: 0;
-            background: inherit;
+            padding-left: 16px;
         }
         tr {
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            transition: background 0.2s;
+            border-bottom: 1px solid #f0f0f0;
         }
         tr:hover {
-            background: rgba(255,255,255,0.05);
+            background: #fafafa;
         }
-        tr:hover td:first-child {
-            background: rgba(255,255,255,0.05);
+        tr:last-child {
+            border-bottom: none;
         }
         .strategy-name {
-            font-weight: 500;
-            color: #fff;
-            max-width: 180px;
+            color: #1890ff;
+            max-width: 160px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
             display: inline-block;
         }
-        .positive {
-            color: #00ff88;
+        .up {
+            color: #f5222d;
         }
-        .negative {
-            color: #ff4757;
+        .down {
+            color: #52c41a;
         }
         .neutral {
-            color: #888;
+            color: #999;
         }
         .loading {
             text-align: center;
             padding: 60px;
-            color: #888;
-        }
-        .loading::after {
-            content: '';
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #00d9ff;
-            border-top-color: transparent;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-left: 10px;
-            vertical-align: middle;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+            color: #999;
         }
         .error {
             text-align: center;
             padding: 40px;
-            color: #ff4757;
-            background: rgba(255,71,87,0.1);
-            border-radius: 12px;
-        }
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
+            color: #f5222d;
+            background: #fff;
             border-radius: 4px;
-            font-size: 0.75em;
-            margin-left: 8px;
         }
-        .badge-top {
-            background: linear-gradient(90deg, #ffd700, #ffaa00);
-            color: #000;
-        }
-        footer {
+        .footer {
             text-align: center;
-            padding: 30px 0;
-            margin-top: 40px;
-            color: #666;
-            font-size: 0.85em;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 24px 0;
+            color: #999;
+            font-size: 13px;
         }
-        footer a {
-            color: #00d9ff;
+        .footer a {
+            color: #1890ff;
             text-decoration: none;
         }
         @media (max-width: 768px) {
             .container {
-                padding: 10px;
-            }
-            header h1 {
-                font-size: 1.8em;
+                padding: 12px;
             }
             .stats-bar {
-                gap: 20px;
-            }
-            .stat-value {
-                font-size: 1.4em;
+                flex-wrap: wrap;
+                gap: 12px;
             }
             .controls {
                 flex-direction: column;
@@ -236,50 +226,35 @@
             }
             th, td {
                 padding: 10px 8px;
-                font-size: 0.85em;
+                font-size: 12px;
             }
-        }
-        .refresh-btn {
-            padding: 10px 20px;
-            background: linear-gradient(90deg, #00d9ff, #00ff88);
-            border: none;
-            border-radius: 8px;
-            color: #000;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .refresh-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 217, 255, 0.3);
-        }
-        .highlight-row {
-            background: rgba(0, 255, 136, 0.1) !important;
-        }
-        .highlight-row td:first-child {
-            background: rgba(0, 255, 136, 0.1) !important;
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <div class="header-inner">
+            <div class="logo">
+                牛策网
+                <span>A股因子库</span>
+            </div>
+            <div class="update-time" id="update-time">数据加载中...</div>
+        </div>
+    </div>
+    
     <div class="container">
-        <header>
-            <h1>单因子策略库</h1>
-            <p class="update-time" id="update-time">数据加载中...</p>
-        </header>
-        
-        <div class="stats-bar" id="stats-bar">
+        <div class="stats-bar">
             <div class="stat-item">
                 <div class="stat-value" id="total-count">-</div>
                 <div class="stat-label">策略总数</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value" id="avg-ytd">-</div>
+                <div class="stat-value up" id="avg-ytd">-</div>
                 <div class="stat-label">平均年初收益</div>
             </div>
             <div class="stat-item">
-                <div class="stat-value" id="best-return">-</div>
-                <div class="stat-label">最佳总收益</div>
+                <div class="stat-value up" id="best-annual">-</div>
+                <div class="stat-label">最佳年化收益</div>
             </div>
             <div class="stat-item">
                 <div class="stat-value" id="avg-sharpe">-</div>
@@ -289,7 +264,7 @@
         
         <div class="controls">
             <div class="search-box">
-                <input type="text" id="search-input" placeholder="搜索策略名称...">
+                <input type="text" id="search-input" placeholder="搜索因子名称...">
             </div>
             <div class="sort-controls">
                 <select id="sort-select">
@@ -307,17 +282,16 @@
         </div>
         
         <div id="table-container">
-            <div class="loading">正在加载数据</div>
+            <div class="loading">正在加载数据...</div>
         </div>
         
-        <footer>
-            <p>数据来源：<a href="https://guorn.com/user/strategy?uid=13496" target="_blank">果仁网</a> | 自动更新于腾讯云函数</p>
-        </footer>
+        <div class="footer">
+            数据来源：<a href="https://guorn.com/user/strategy?uid=13496" target="_blank">果仁网</a>
+        </div>
     </div>
 
     <script>
         let allStrategies = [];
-        let fieldLabels = {};
         let currentSort = 'ytd';
         let currentOrder = 'desc';
         
@@ -331,6 +305,13 @@
             return sign + num.toFixed(2) + '%';
         }
         
+        function formatPercentAbs(value) {
+            if (value === null || value === undefined) return '-';
+            const num = parseFloat(value);
+            if (isNaN(num)) return '-';
+            return '-' + Math.abs(num).toFixed(2) + '%';
+        }
+        
         function formatNumber(value, decimals) {
             if (value === null || value === undefined) return '-';
             const num = parseFloat(value);
@@ -342,18 +323,18 @@
             if (value === null || value === undefined) return 'neutral';
             const num = parseFloat(value);
             if (isNaN(num) || num === 0) return 'neutral';
-            return num > 0 ? 'positive' : 'negative';
+            return num > 0 ? 'up' : 'down';
         }
         
         function calculateStats(data) {
             const total = data.length;
             const avgYtd = data.reduce((sum, s) => sum + (s.ytd || 0), 0) / total;
-            const bestReturn = Math.max(...data.map(s => s.total_return || 0));
+            const bestAnnual = Math.max(...data.map(s => s.annual_return || 0));
             const avgSharpe = data.reduce((sum, s) => sum + (s.sharpe_ratio || 0), 0) / total;
             
             document.getElementById('total-count').textContent = total;
             document.getElementById('avg-ytd').textContent = formatPercent(avgYtd);
-            document.getElementById('best-return').textContent = formatPercent(bestReturn);
+            document.getElementById('best-annual').textContent = formatPercent(bestAnnual);
             document.getElementById('avg-sharpe').textContent = formatNumber(avgSharpe, 2);
         }
         
@@ -379,20 +360,18 @@
                             <th onclick="sortBy('sharpe_ratio')">夏普比率</th>
                             <th onclick="sortBy('max_dd')">最大回撤</th>
                             <th onclick="sortBy('volatility')">波动率</th>
+                            <th onclick="sortBy('create_date')">创建时间</th>
+                            <th onclick="sortBy('update_time')">更新时间</th>
                             <th onclick="sortBy('next_trade_date')">下次交易</th>
                         </tr>
                     </thead>
                     <tbody>
             `;
             
-            data.forEach((s, index) => {
-                const isTop3 = index < 3 && (currentSort === 'total_return' || currentSort === 'sharpe_ratio' || currentSort === 'annual_return');
-                const topBadge = isTop3 ? '<span class="badge badge-top">TOP</span>' : '';
-                const rowClass = isTop3 ? 'highlight-row' : '';
-                
+            data.forEach((s) => {
                 html += `
-                    <tr class="${rowClass}">
-                        <td><span class="strategy-name" title="${s.name}">${s.name}</span>${topBadge}</td>
+                    <tr>
+                        <td><span class="strategy-name" title="${s.name}">${s.name}</span></td>
                         <td class="${getValueClass(s.day_1)}">${formatPercent(s.day_1)}</td>
                         <td class="${getValueClass(s.day_7)}">${formatPercent(s.day_7)}</td>
                         <td class="${getValueClass(s.month_1)}">${formatPercent(s.month_1)}</td>
@@ -401,8 +380,10 @@
                         <td class="${getValueClass(s.total_return)}">${formatPercent(s.total_return)}</td>
                         <td class="${getValueClass(s.annual_return)}">${formatPercent(s.annual_return)}</td>
                         <td class="${getValueClass(s.sharpe_ratio)}">${formatNumber(s.sharpe_ratio, 2)}</td>
-                        <td class="negative">${formatPercent(s.max_dd)}</td>
+                        <td class="down">${formatPercentAbs(s.max_dd)}</td>
                         <td class="${getValueClass(s.volatility)}">${formatPercent(s.volatility)}</td>
+                        <td class="neutral">${s.create_date || '-'}</td>
+                        <td class="neutral">${s.update_time || '-'}</td>
                         <td class="neutral">${s.next_trade_date || '-'}</td>
                     </tr>
                 `;
@@ -434,16 +415,10 @@
                 let aVal = a[currentSort] || 0;
                 let bVal = b[currentSort] || 0;
                 
-                if (currentSort === 'name') {
-                    return currentOrder === 'desc' 
-                        ? b.name.localeCompare(a.name)
-                        : a.name.localeCompare(b.name);
-                }
-                
-                if (currentSort === 'next_trade_date') {
-                    return currentOrder === 'desc' 
-                        ? (b.next_trade_date || '').localeCompare(a.next_trade_date || '')
-                        : (a.next_trade_date || '').localeCompare(b.next_trade_date || '');
+                if (currentSort === 'name' || currentSort === 'create_date' || currentSort === 'update_time' || currentSort === 'next_trade_date') {
+                    const aStr = a[currentSort] || '';
+                    const bStr = b[currentSort] || '';
+                    return currentOrder === 'desc' ? bStr.localeCompare(aStr) : aStr.localeCompare(bStr);
                 }
                 
                 if (currentSort === 'max_dd' || currentSort === 'volatility') {
@@ -458,7 +433,7 @@
         
         async function loadData() {
             const container = document.getElementById('table-container');
-            container.innerHTML = '<div class="loading">正在加载数据</div>';
+            container.innerHTML = '<div class="loading">正在加载数据...</div>';
             
             try {
                 const response = await fetch(DATA_URL + '?t=' + Date.now());
@@ -469,11 +444,8 @@
                 
                 if (data.strategies) {
                     allStrategies = data.strategies;
-                    fieldLabels = data.field_labels || {};
-                    
                     if (data.fetch_time) {
-                        document.getElementById('update-time').textContent = 
-                            '最后更新: ' + data.fetch_time;
+                        document.getElementById('update-time').textContent = '最后更新: ' + data.fetch_time;
                     }
                 } else {
                     allStrategies = data;
@@ -484,14 +456,7 @@
                 
             } catch (error) {
                 console.error('加载失败:', error);
-                container.innerHTML = `
-                    <div class="error">
-                        <p>数据加载失败: ${error.message}</p>
-                        <p style="margin-top:10px;color:#888;font-size:0.9em;">
-                            请确保 strategies_data.json 文件存在
-                        </p>
-                    </div>
-                `;
+                container.innerHTML = `<div class="error">数据加载失败: ${error.message}</div>`;
             }
         }
         
