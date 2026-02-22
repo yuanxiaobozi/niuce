@@ -40,6 +40,26 @@
             margin-left: 12px;
             font-weight: normal;
         }
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+        .nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .nav a:hover {
+            color: #1890ff;
+            background: #f0f0f0;
+        }
+        .nav a.active {
+            color: #1890ff;
+            background: #e6f7ff;
+        }
         .update-time {
             color: #999;
             font-size: 13px;
@@ -237,6 +257,10 @@
             <div class="logo">
                 牛策网
                 <span>A股因子库</span>
+            </div>
+            <div class="nav">
+                <a href="index.html" class="active">因子列表</a>
+                <a href="chart.html">风险收益图</a>
             </div>
             <div class="update-time" id="update-time">数据加载中...</div>
         </div>
