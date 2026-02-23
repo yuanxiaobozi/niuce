@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T04:49:55.827Z",
-  "total_count": 5,
+  "fetch_time": "2026-02-23T04:50:02.571Z",
+  "total_count": 6,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -62,6 +62,17 @@
         "价值"
       ],
       "style": "价值",
+      "create_date": "2016/09/05",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.58296560587470",
+      "name": "市现率（从小到大）",
+      "tag": [],
+      "style": "",
       "create_date": "2016/09/05",
       "period": 5,
       "price": "close",
