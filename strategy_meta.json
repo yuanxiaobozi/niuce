@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T08:22:24.293Z",
-  "total_count": 99,
+  "fetch_time": "2026-02-23T08:23:48.348Z",
+  "total_count": 100,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1189,6 +1189,21 @@
         "上证50"
       ],
       "style": "上证50",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 5,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086524450241",
+      "name": "上证50-10日成交额（小）",
+      "tag": [
+        "上证50",
+        "价值",
+        "稳健"
+      ],
+      "style": "上证50,价值,稳健",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
