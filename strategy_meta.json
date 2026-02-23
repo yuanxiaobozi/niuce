@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T08:18:29.579Z",
-  "total_count": 88,
+  "fetch_time": "2026-02-23T08:18:33.730Z",
+  "total_count": 89,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1057,6 +1057,17 @@
         "成长"
       ],
       "style": "成长",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086472765065",
+      "name": "总资产周转率（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
