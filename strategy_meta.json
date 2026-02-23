@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:23:01.632Z",
-  "total_count": 38,
+  "fetch_time": "2026-02-23T06:23:09.838Z",
+  "total_count": 39,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -452,6 +452,17 @@
         "行业"
       ],
       "style": "行业",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60109368438523",
+      "name": "休闲服务",
+      "tag": [],
+      "style": "",
       "create_date": "2016/09/26",
       "period": 5,
       "price": "close",
