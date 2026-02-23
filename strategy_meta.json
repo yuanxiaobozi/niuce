@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:29:53.693Z",
-  "total_count": 55,
+  "fetch_time": "2026-02-23T06:30:33.734Z",
+  "total_count": 56,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -646,6 +646,17 @@
     {
       "id": "13496.R.60110352868139",
       "name": "食品饮料",
+      "tag": [],
+      "style": "",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60110325475989",
+      "name": "非银金融",
       "tag": [],
       "style": "",
       "create_date": "2016/09/26",
