@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T11:02:54.065Z",
-  "total_count": 136,
+  "fetch_time": "2026-02-23T11:03:14.930Z",
+  "total_count": 137,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1684,6 +1684,20 @@
       "style": "上证50,价值,稳健",
       "create_date": "2017/06/19",
       "period": 5,
+      "price": "close",
+      "stock_num": 5,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086588287446",
+      "name": "上证50-80日乖离率(小）",
+      "tag": [
+        "上证50",
+        "反转"
+      ],
+      "style": "上证50,反转",
+      "create_date": "2017/06/19",
+      "period": 20,
       "price": "close",
       "stock_num": 5,
       "trade_cost": 0.002
