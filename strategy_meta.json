@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:22:08.212Z",
-  "total_count": 31,
+  "fetch_time": "2026-02-23T06:22:11.751Z",
+  "total_count": 32,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -371,6 +371,17 @@
         "价值"
       ],
       "style": "价值",
+      "create_date": "2016/09/05",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.58299049272654",
+      "name": "预期营收增长（从大到小）",
+      "tag": [],
+      "style": "",
       "create_date": "2016/09/05",
       "period": 5,
       "price": "close",
