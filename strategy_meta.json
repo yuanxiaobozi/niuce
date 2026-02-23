@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T08:19:49.782Z",
-  "total_count": 93,
+  "fetch_time": "2026-02-23T08:20:02.908Z",
+  "total_count": 94,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1119,6 +1119,17 @@
         "成长"
       ],
       "style": "价值,成长",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086460561342",
+      "name": "销售毛利率（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
