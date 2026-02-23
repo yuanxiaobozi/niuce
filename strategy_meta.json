@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:32:15.674Z",
-  "total_count": 164,
+  "fetch_time": "2026-02-23T12:32:30.946Z",
+  "total_count": 165,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2061,6 +2061,19 @@
         "稳健"
       ],
       "style": "沪深300,稳健",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086608981647",
+      "name": "沪深300-流通市值（小）",
+      "tag": [
+        "沪深300"
+      ],
+      "style": "沪深300",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
