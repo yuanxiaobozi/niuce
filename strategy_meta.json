@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:24:55.223Z",
-  "total_count": 46,
+  "fetch_time": "2026-02-23T06:25:04.323Z",
+  "total_count": 47,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -540,6 +540,17 @@
     {
       "id": "13496.R.60110112593357",
       "name": "纺织服装",
+      "tag": [],
+      "style": "",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60110191942164",
+      "name": "轻工制造",
       "tag": [],
       "style": "",
       "create_date": "2016/09/26",
