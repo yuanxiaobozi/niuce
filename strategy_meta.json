@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:21:04.192Z",
-  "total_count": 30,
+  "fetch_time": "2026-02-23T06:22:08.212Z",
+  "total_count": 31,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -358,6 +358,19 @@
       "name": "净资产增长（从大到小）",
       "tag": [],
       "style": "",
+      "create_date": "2016/09/05",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.58296435534812",
+      "name": "市销率（从小到大）",
+      "tag": [
+        "价值"
+      ],
+      "style": "价值",
       "create_date": "2016/09/05",
       "period": 5,
       "price": "close",
