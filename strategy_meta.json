@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:34:48.660Z",
-  "total_count": 171,
+  "fetch_time": "2026-02-23T12:34:57.231Z",
+  "total_count": 172,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2155,6 +2155,17 @@
         "成长"
       ],
       "style": "沪深300,价值,成长",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086653621744",
+      "name": "沪深300-营业收入增长（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
