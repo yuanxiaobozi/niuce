@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:44:32.152Z",
-  "total_count": 195,
+  "fetch_time": "2026-02-23T12:44:41.472Z",
+  "total_count": 196,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2455,6 +2455,20 @@
       "style": "沪深300,价值,稳健",
       "create_date": "2017/06/19",
       "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086674178711",
+      "name": "沪深300-80日乖离率(小）",
+      "tag": [
+        "沪深300",
+        "反转"
+      ],
+      "style": "沪深300,反转",
+      "create_date": "2017/06/19",
+      "period": 20,
       "price": "close",
       "stock_num": 30,
       "trade_cost": 0.002
