@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T10:58:56.950Z",
-  "total_count": 132,
+  "fetch_time": "2026-02-23T10:59:10.429Z",
+  "total_count": 133,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1623,6 +1623,20 @@
       "name": "上证50-负债资产率（小）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 5,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086539665315",
+      "name": "上证50-流动比率（大）",
+      "tag": [
+        "上证50",
+        "价值"
+      ],
+      "style": "上证50,价值",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
