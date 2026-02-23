@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T05:22:39.066Z",
-  "total_count": 17,
+  "fetch_time": "2026-02-23T05:22:47.154Z",
+  "total_count": 18,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -204,6 +204,20 @@
       "name": "销售毛利率（从大到小）",
       "tag": [],
       "style": "",
+      "create_date": "2016/09/05",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.58297344956112",
+      "name": "资产回报率（从大到小）",
+      "tag": [
+        "价值",
+        "成长"
+      ],
+      "style": "价值,成长",
       "create_date": "2016/09/05",
       "period": 5,
       "price": "close",
