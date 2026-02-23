@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:33:23.450Z",
-  "total_count": 62,
+  "fetch_time": "2026-02-23T06:33:31.964Z",
+  "total_count": 63,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -729,6 +729,17 @@
     {
       "id": "13496.R.60109778008832",
       "name": "家用电器",
+      "tag": [],
+      "style": "",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60110070374335",
+      "name": "电子  ",
       "tag": [],
       "style": "",
       "create_date": "2016/09/26",
