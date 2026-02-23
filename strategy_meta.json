@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:36:20.238Z",
-  "total_count": 177,
+  "fetch_time": "2026-02-23T12:36:33.451Z",
+  "total_count": 178,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2230,6 +2230,19 @@
       "name": "沪深300-总资产周转率（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086639755091",
+      "name": "沪深300-存货周转率（大）",
+      "tag": [
+        "沪深300"
+      ],
+      "style": "沪深300",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
