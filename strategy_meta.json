@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T08:11:56.223Z",
-  "total_count": 81,
+  "fetch_time": "2026-02-23T08:12:04.979Z",
+  "total_count": 82,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -975,6 +975,20 @@
       "style": "小盘",
       "create_date": "2017/06/13",
       "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.58297476776302",
+      "name": "净资产收益率（从大到小）",
+      "tag": [
+        "价值",
+        "成长"
+      ],
+      "style": "价值,成长",
+      "create_date": "2016/09/05",
+      "period": 20,
       "price": "close",
       "stock_num": "50",
       "trade_cost": 0.002
