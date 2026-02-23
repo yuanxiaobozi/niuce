@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:28:33.818Z",
-  "total_count": 152,
+  "fetch_time": "2026-02-23T12:28:42.217Z",
+  "total_count": 153,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1898,6 +1898,17 @@
         "价值"
       ],
       "style": "沪深300,价值",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086635358056",
+      "name": "沪深300-5年资产回报率（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
