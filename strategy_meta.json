@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:22:55.453Z",
-  "total_count": 37,
+  "fetch_time": "2026-02-23T06:23:01.632Z",
+  "total_count": 38,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -439,6 +439,19 @@
       "name": "公用事业",
       "tag": [],
       "style": "",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60109414952299",
+      "name": "传媒  ",
+      "tag": [
+        "行业"
+      ],
+      "style": "行业",
       "create_date": "2016/09/26",
       "period": 5,
       "price": "close",
