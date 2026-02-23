@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:40:13.141Z",
-  "total_count": 185,
+  "fetch_time": "2026-02-23T12:40:33.351Z",
+  "total_count": 186,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2329,6 +2329,19 @@
         "稳健"
       ],
       "style": "中证500,价值,稳健",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086698651687",
+      "name": "中证500-历史贝塔（小）",
+      "tag": [
+        "中证500"
+      ],
+      "style": "中证500",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
