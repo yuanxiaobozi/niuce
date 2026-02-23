@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T09:42:01.071Z",
-  "total_count": 108,
+  "fetch_time": "2026-02-23T09:44:41.700Z",
+  "total_count": 109,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1311,6 +1311,19 @@
         "稳健"
       ],
       "style": "价值,稳健",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086501568119",
+      "name": "60日平均成交量（小）",
+      "tag": [
+        "小盘"
+      ],
+      "style": "小盘",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
