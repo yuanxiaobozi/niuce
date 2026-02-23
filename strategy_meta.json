@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:26:48.451Z",
-  "total_count": 51,
+  "fetch_time": "2026-02-23T06:27:49.585Z",
+  "total_count": 52,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -603,6 +603,17 @@
       ],
       "style": "价值,稳健",
       "create_date": "2017/06/13",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60110214893039",
+      "name": "通信  ",
+      "tag": [],
+      "style": "",
+      "create_date": "2016/09/26",
       "period": 5,
       "price": "close",
       "stock_num": "50",
