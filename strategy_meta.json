@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:24:05.997Z",
-  "total_count": 147,
+  "fetch_time": "2026-02-23T12:24:45.431Z",
+  "total_count": 148,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1830,6 +1830,21 @@
       "style": "上证50,价值,稳健",
       "create_date": "2017/06/19",
       "period": 20,
+      "price": "close",
+      "stock_num": 5,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086590731496",
+      "name": "上证50-动态市盈率（小）",
+      "tag": [
+        "上证50",
+        "价值",
+        "稳健"
+      ],
+      "style": "上证50,价值,稳健",
+      "create_date": "2017/06/19",
+      "period": 5,
       "price": "close",
       "stock_num": 5,
       "trade_cost": 0.002
