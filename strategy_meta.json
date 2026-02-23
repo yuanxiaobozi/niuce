@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:30:56.909Z",
-  "total_count": 160,
+  "fetch_time": "2026-02-23T12:31:06.470Z",
+  "total_count": 161,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2002,6 +2002,21 @@
       "name": "沪深300-流动比率（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086617812038",
+      "name": "沪深300-股息率（大）",
+      "tag": [
+        "沪深300",
+        "价值",
+        "稳健"
+      ],
+      "style": "沪深300,价值,稳健",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
