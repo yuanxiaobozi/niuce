@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T08:19:11.600Z",
-  "total_count": 90,
+  "fetch_time": "2026-02-23T08:19:31.179Z",
+  "total_count": 91,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1079,6 +1079,19 @@
       "name": "存货周转率（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086468062425",
+      "name": "5年净资产收益率（大）",
+      "tag": [
+        "价值"
+      ],
+      "style": "价值",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
