@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T09:48:22.604Z",
-  "total_count": 121,
+  "fetch_time": "2026-02-23T10:56:02.333Z",
+  "total_count": 122,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1471,6 +1471,20 @@
       "name": "上证50-净利润增长（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 5,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086562703155",
+      "name": "上证50-营业利润增长（大）",
+      "tag": [
+        "上证50",
+        "成长"
+      ],
+      "style": "上证50,成长",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
