@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T08:11:37.554Z",
-  "total_count": 79,
+  "fetch_time": "2026-02-23T08:11:43.195Z",
+  "total_count": 80,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -951,6 +951,17 @@
       "style": "价值,稳健",
       "create_date": "2016/09/05",
       "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.82563291884649",
+      "name": "扣非净资产回报率（大）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/13",
+      "period": 20,
       "price": "close",
       "stock_num": "50",
       "trade_cost": 0.002
