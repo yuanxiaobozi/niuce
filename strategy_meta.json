@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T05:19:54.731Z",
-  "total_count": 11,
+  "fetch_time": "2026-02-23T05:20:18.867Z",
+  "total_count": 12,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -138,6 +138,17 @@
         "小盘"
       ],
       "style": "小盘",
+      "create_date": "2016/09/05",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.58296846418923",
+      "name": "流动比率（从大到小）",
+      "tag": [],
+      "style": "",
       "create_date": "2016/09/05",
       "period": 5,
       "price": "close",
