@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:28:05.364Z",
-  "total_count": 53,
+  "fetch_time": "2026-02-23T06:29:13.253Z",
+  "total_count": 54,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -626,6 +626,17 @@
         "行业"
       ],
       "style": "行业",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60110265502409",
+      "name": "钢铁  ",
+      "tag": [],
+      "style": "",
       "create_date": "2016/09/26",
       "period": 5,
       "price": "close",
