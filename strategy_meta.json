@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:34:55.699Z",
-  "total_count": 66,
+  "fetch_time": "2026-02-23T06:35:14.262Z",
+  "total_count": 67,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -782,6 +782,17 @@
         "行业"
       ],
       "style": "行业",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60109854203803",
+      "name": "建筑装饰",
+      "tag": [],
+      "style": "",
       "create_date": "2016/09/26",
       "period": 5,
       "price": "close",
