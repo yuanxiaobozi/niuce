@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:32:14.712Z",
-  "total_count": 59,
+  "fetch_time": "2026-02-23T06:32:47.095Z",
+  "total_count": 60,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -692,6 +692,17 @@
     {
       "id": "13496.R.60109752559774",
       "name": "国防军工",
+      "tag": [],
+      "style": "",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60110144293760",
+      "name": "综合  ",
       "tag": [],
       "style": "",
       "create_date": "2016/09/26",
