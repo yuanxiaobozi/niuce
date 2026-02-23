@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:25:04.323Z",
-  "total_count": 44,
+  "fetch_time": "2026-02-23T06:25:13.999Z",
+  "total_count": 45,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5851,6 +5851,139 @@
           "max_drawdown": 0.051491,
           "volatility": 0.202232,
           "sharpe_ratio": 1.973398
+        }
+      ]
+    },
+    {
+      "id": "13496.R.60110166226762",
+      "yearly_data": [
+        {
+          "year": 2011,
+          "return_rate": -0.40238,
+          "benchmark_return": -0.264584,
+          "max_drawdown": 0.411772,
+          "volatility": 0.269362,
+          "sharpe_ratio": -1.642325
+        },
+        {
+          "year": 2012,
+          "return_rate": -0.133616,
+          "benchmark_return": 0.075545,
+          "max_drawdown": 0.385696,
+          "volatility": 0.291861,
+          "sharpe_ratio": -0.596611
+        },
+        {
+          "year": 2013,
+          "return_rate": 0.438054,
+          "benchmark_return": -0.076468,
+          "max_drawdown": 0.187843,
+          "volatility": 0.32965,
+          "sharpe_ratio": 1.24764
+        },
+        {
+          "year": 2014,
+          "return_rate": 0.368399,
+          "benchmark_return": 0.516595,
+          "max_drawdown": 0.19606,
+          "volatility": 0.282222,
+          "sharpe_ratio": 1.157417
+        },
+        {
+          "year": 2015,
+          "return_rate": 0.755659,
+          "benchmark_return": 0.055834,
+          "max_drawdown": 0.586692,
+          "volatility": 0.538724,
+          "sharpe_ratio": 1.328433
+        },
+        {
+          "year": 2016,
+          "return_rate": -0.420736,
+          "benchmark_return": -0.112818,
+          "max_drawdown": 0.420736,
+          "volatility": 0.375399,
+          "sharpe_ratio": -1.227322
+        },
+        {
+          "year": 2017,
+          "return_rate": -0.288219,
+          "benchmark_return": 0.217751,
+          "max_drawdown": 0.306536,
+          "volatility": 0.22064,
+          "sharpe_ratio": -1.487579
+        },
+        {
+          "year": 2018,
+          "return_rate": -0.354463,
+          "benchmark_return": -0.253098,
+          "max_drawdown": 0.41198,
+          "volatility": 0.363743,
+          "sharpe_ratio": -1.087648
+        },
+        {
+          "year": 2019,
+          "return_rate": 0.161433,
+          "benchmark_return": 0.360695,
+          "max_drawdown": 0.344695,
+          "volatility": 0.369222,
+          "sharpe_ratio": 0.328889
+        },
+        {
+          "year": 2020,
+          "return_rate": -0.210161,
+          "benchmark_return": 0.272106,
+          "max_drawdown": 0.389184,
+          "volatility": 0.38599,
+          "sharpe_ratio": -0.650087
+        },
+        {
+          "year": 2021,
+          "return_rate": -0.158009,
+          "benchmark_return": -0.051986,
+          "max_drawdown": 0.258954,
+          "volatility": 0.269865,
+          "sharpe_ratio": -0.735941
+        },
+        {
+          "year": 2022,
+          "return_rate": -0.43415,
+          "benchmark_return": -0.216328,
+          "max_drawdown": 0.540951,
+          "volatility": 0.356195,
+          "sharpe_ratio": -1.338612
+        },
+        {
+          "year": 2023,
+          "return_rate": 0.027671,
+          "benchmark_return": -0.113782,
+          "max_drawdown": 0.314205,
+          "volatility": 0.346712,
+          "sharpe_ratio": -0.034892
+        },
+        {
+          "year": 2024,
+          "return_rate": -0.088773,
+          "benchmark_return": 0.146833,
+          "max_drawdown": 0.424422,
+          "volatility": 0.494022,
+          "sharpe_ratio": -0.262079
+        },
+        {
+          "year": 2025,
+          "return_rate": 0.072959,
+          "benchmark_return": 0.176631,
+          "max_drawdown": 0.293204,
+          "volatility": 0.364754,
+          "sharpe_ratio": 0.091213
+        },
+        {
+          "year": 2026,
+          "return_rate": 0.073516,
+          "benchmark_return": 0.00658,
+          "max_drawdown": 0.139837,
+          "volatility": 0.407819,
+          "sharpe_ratio": 1.816091
         }
       ]
     }
