@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T11:03:58.497Z",
-  "total_count": 141,
+  "fetch_time": "2026-02-23T11:04:09.310Z",
+  "total_count": 142,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1750,6 +1750,17 @@
         "稳健"
       ],
       "style": "上证50,价值,稳健",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 5,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086578602245",
+      "name": "上证50-分析师情绪指数（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
