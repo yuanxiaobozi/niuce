@@ -1,5 +1,5 @@
 {
-  "fetch_time": "2026-02-23T02:43:02.932Z",
+  "fetch_time": "2026-02-23T04:45:11.794Z",
   "total_count": 1,
   "strategies": [
     {
@@ -13,9 +13,7 @@
       "period": 5,
       "price": "close",
       "stock_num": "50",
-      "model": 0,
-      "trade_cost": 0.002,
-      "realtime": 0
+      "trade_cost": 0.002
     }
   ]
 }
