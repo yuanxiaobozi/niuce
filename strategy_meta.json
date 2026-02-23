@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:44:10.716Z",
-  "total_count": 193,
+  "fetch_time": "2026-02-23T12:44:22.668Z",
+  "total_count": 194,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2427,6 +2427,19 @@
       "style": "沪深300,价值,成长",
       "create_date": "2017/06/19",
       "period": 20,
+      "price": "close",
+      "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086681928140",
+      "name": "沪深300-10日股价振幅比率（大）",
+      "tag": [
+        "沪深300"
+      ],
+      "style": "沪深300",
+      "create_date": "2017/06/19",
+      "period": 5,
       "price": "close",
       "stock_num": 30,
       "trade_cost": 0.002
