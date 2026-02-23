@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T11:03:34.982Z",
-  "total_count": 139,
+  "fetch_time": "2026-02-23T11:03:49.727Z",
+  "total_count": 140,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1722,6 +1722,19 @@
       "name": "上证50-60日平均成交量（小）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 5,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086582376645",
+      "name": "上证50-经营现金流量净额同比增长（大）",
+      "tag": [
+        "上证50"
+      ],
+      "style": "上证50",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
