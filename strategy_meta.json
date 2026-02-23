@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T08:11:28.443Z",
-  "total_count": 78,
+  "fetch_time": "2026-02-23T08:11:37.554Z",
+  "total_count": 79,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -939,6 +939,20 @@
       "period": 5,
       "price": "close",
       "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.58296363053484",
+      "name": "市净率（从小到大）",
+      "tag": [
+        "价值",
+        "稳健"
+      ],
+      "style": "价值,稳健",
+      "create_date": "2016/09/05",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
       "trade_cost": 0.002
     }
   ]
