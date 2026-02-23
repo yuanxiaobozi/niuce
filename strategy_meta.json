@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:32:47.095Z",
-  "total_count": 60,
+  "fetch_time": "2026-02-23T06:32:50.187Z",
+  "total_count": 61,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -705,6 +705,21 @@
       "name": "综合  ",
       "tag": [],
       "style": "",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60110296030355",
+      "name": "银行  ",
+      "tag": [
+        "行业",
+        "大盘",
+        "价值"
+      ],
+      "style": "行业,大盘,价值",
       "create_date": "2016/09/26",
       "period": 5,
       "price": "close",
