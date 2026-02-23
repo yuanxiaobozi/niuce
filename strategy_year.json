@@ -1,14 +1,14 @@
 {
-  "fetch_time": "2026-02-23T00:45:56.302Z",
-  "total_count": 4,
+  "fetch_time": "2026-02-23T00:46:01.517Z",
+  "total_count": 5,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
-      "name": "ÃÂ¦ÃÂÃÂ¶ÃÂ§ÃÂÃÂÃÂ¤ÃÂ»ÃÂ·ÃÂ¯ÃÂ¼ÃÂÃÂ¤ÃÂ»ÃÂÃÂ¥ÃÂ°ÃÂÃÂ¥ÃÂÃÂ°ÃÂ¥ÃÂ¤ÃÂ§ÃÂ¯ÃÂ¼ÃÂ",
+      "name": "ÃÂÃÂ¦ÃÂÃÂÃÂÃÂ¶ÃÂÃÂ§ÃÂÃÂÃÂÃÂÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂ·ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂÃÂÃÂ¥ÃÂÃÂ°ÃÂÃÂÃÂÃÂ¥ÃÂÃÂÃÂÃÂ°ÃÂÃÂ¥ÃÂÃÂ¤ÃÂÃÂ§ÃÂÃÂ¯ÃÂÃÂ¼ÃÂÃÂ",
       "tag": [
-        "ÃÂ¤ÃÂ»ÃÂ·ÃÂ¥ÃÂÃÂ¼"
+        "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂ·ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¼"
       ],
-      "style": "ÃÂ¤ÃÂ»ÃÂ·ÃÂ¥ÃÂÃÂ¼",
+      "style": "ÃÂÃÂ¤ÃÂÃÂ»ÃÂÃÂ·ÃÂÃÂ¥ÃÂÃÂÃÂÃÂ¼",
       "create_date": "2016/09/05",
       "period": 5,
       "price": "close",
@@ -198,11 +198,11 @@
     },
     {
       "id": "13496.R.58290199579740",
-      "name": "Ã¦ÂÂ»Ã¥Â¸ÂÃ¥ÂÂ¼Ã¯Â¼ÂÃ¤Â»ÂÃ¥Â°ÂÃ¥ÂÂ°Ã¥Â¤Â§Ã¯Â¼Â",
+      "name": "ÃÂ¦ÃÂÃÂ»ÃÂ¥ÃÂ¸ÃÂÃÂ¥ÃÂÃÂ¼ÃÂ¯ÃÂ¼ÃÂÃÂ¤ÃÂ»ÃÂÃÂ¥ÃÂ°ÃÂÃÂ¥ÃÂÃÂ°ÃÂ¥ÃÂ¤ÃÂ§ÃÂ¯ÃÂ¼ÃÂ",
       "tag": [
-        "Ã¥Â°ÂÃ§ÂÂ"
+        "ÃÂ¥ÃÂ°ÃÂÃÂ§ÃÂÃÂ"
       ],
-      "style": "Ã¥Â°ÂÃ§ÂÂ",
+      "style": "ÃÂ¥ÃÂ°ÃÂÃÂ§ÃÂÃÂ",
       "create_date": "2016/09/05",
       "period": 5,
       "price": "close",
@@ -392,11 +392,11 @@
     },
     {
       "id": "13496.R.58292307426754",
-      "name": "æäº¤éï¼ä»å°å°å¤§ï¼",
+      "name": "Ã¦ÂÂÃ¤ÂºÂ¤Ã©ÂÂÃ¯Â¼ÂÃ¤Â»ÂÃ¥Â°ÂÃ¥ÂÂ°Ã¥Â¤Â§Ã¯Â¼Â",
       "tag": [
-        "å°ç"
+        "Ã¥Â°ÂÃ§ÂÂ"
       ],
-      "style": "å°ç",
+      "style": "Ã¥Â°ÂÃ§ÂÂ",
       "create_date": "2016/09/05",
       "period": 5,
       "price": "close",
@@ -586,11 +586,11 @@
     },
     {
       "id": "13496.R.58291902551804",
-      "name": "10日成交额（小）",
+      "name": "10æ¥æäº¤é¢ï¼å°ï¼",
       "tag": [
-        "小盘"
+        "å°ç"
       ],
-      "style": "小盘",
+      "style": "å°ç",
       "create_date": "2016/09/05",
       "period": 5,
       "price": "close",
@@ -777,6 +777,200 @@
         }
       ],
       "fetch_time": "2026-02-23T00:45:54.354Z"
+    },
+    {
+      "id": "13496.R.58295432768291",
+      "name": "60日涨幅（从小到大）",
+      "tag": [
+        "反转"
+      ],
+      "style": "反转",
+      "create_date": "2016/09/05",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "model": 0,
+      "trade_cost": 0.002,
+      "realtime": 0,
+      "yearly_data": [
+        {
+          "year": 2011,
+          "return_rate": -0.291161,
+          "benchmark_return": -0.264584,
+          "max_drawdown": 0.372422,
+          "benchmark_max_drawdown": 0.316425,
+          "tracking_error": 0.155518,
+          "information_ratio": -0.170889,
+          "volatility": 0.292163,
+          "sharpe_ratio": -1.13348
+        },
+        {
+          "year": 2012,
+          "return_rate": 0.22559,
+          "benchmark_return": 0.075545,
+          "max_drawdown": 0.319729,
+          "benchmark_max_drawdown": 0.224054,
+          "tracking_error": 0.186542,
+          "information_ratio": 0.80812,
+          "volatility": 0.318206,
+          "sharpe_ratio": 0.586462
+        },
+        {
+          "year": 2013,
+          "return_rate": 0.137414,
+          "benchmark_return": -0.076468,
+          "max_drawdown": 0.213117,
+          "benchmark_max_drawdown": 0.221593,
+          "tracking_error": 0.151002,
+          "information_ratio": 1.453162,
+          "volatility": 0.241727,
+          "sharpe_ratio": 0.418288
+        },
+        {
+          "year": 2014,
+          "return_rate": 0.443212,
+          "benchmark_return": 0.516595,
+          "max_drawdown": 0.134576,
+          "benchmark_max_drawdown": 0.104316,
+          "tracking_error": 0.201631,
+          "information_ratio": -0.361883,
+          "volatility": 0.227677,
+          "sharpe_ratio": 1.761497
+        },
+        {
+          "year": 2015,
+          "return_rate": 1.005167,
+          "benchmark_return": 0.055834,
+          "max_drawdown": 0.489017,
+          "benchmark_max_drawdown": 0.434846,
+          "tracking_error": 0.327187,
+          "information_ratio": 2.901498,
+          "volatility": 0.507082,
+          "sharpe_ratio": 1.903376
+        },
+        {
+          "year": 2016,
+          "return_rate": -0.090593,
+          "benchmark_return": -0.112818,
+          "max_drawdown": 0.338493,
+          "benchmark_max_drawdown": 0.235124,
+          "tracking_error": 0.216296,
+          "information_ratio": 0.102753,
+          "volatility": 0.369043,
+          "sharpe_ratio": -0.353868
+        },
+        {
+          "year": 2017,
+          "return_rate": -0.10602,
+          "benchmark_return": 0.217751,
+          "max_drawdown": 0.265781,
+          "benchmark_max_drawdown": 0.060675,
+          "tracking_error": 0.241949,
+          "information_ratio": -1.338176,
+          "volatility": 0.249685,
+          "sharpe_ratio": -0.584816
+        },
+        {
+          "year": 2018,
+          "return_rate": -0.350051,
+          "benchmark_return": -0.253098,
+          "max_drawdown": 0.436259,
+          "benchmark_max_drawdown": 0.318774,
+          "tracking_error": 0.259925,
+          "information_ratio": -0.373982,
+          "volatility": 0.333437,
+          "sharpe_ratio": -1.173241
+        },
+        {
+          "year": 2019,
+          "return_rate": 0.17289,
+          "benchmark_return": 0.360695,
+          "max_drawdown": 0.266064,
+          "benchmark_max_drawdown": 0.134915,
+          "tracking_error": 0.209256,
+          "information_ratio": -0.897491,
+          "volatility": 0.297373,
+          "sharpe_ratio": 0.446878
+        },
+        {
+          "year": 2020,
+          "return_rate": -0.298391,
+          "benchmark_return": 0.272106,
+          "max_drawdown": 0.358997,
+          "benchmark_max_drawdown": 0.160795,
+          "tracking_error": 0.190121,
+          "information_ratio": -3.012721,
+          "volatility": 0.290277,
+          "sharpe_ratio": -1.169275
+        },
+        {
+          "year": 2021,
+          "return_rate": 0.266775,
+          "benchmark_return": -0.051986,
+          "max_drawdown": 0.208842,
+          "benchmark_max_drawdown": 0.181897,
+          "tracking_error": 0.285997,
+          "information_ratio": 1.119602,
+          "volatility": 0.272481,
+          "sharpe_ratio": 0.836786
+        },
+        {
+          "year": 2022,
+          "return_rate": -0.216849,
+          "benchmark_return": -0.216328,
+          "max_drawdown": 0.352933,
+          "benchmark_max_drawdown": 0.28979,
+          "tracking_error": 0.226588,
+          "information_ratio": -0.002315,
+          "volatility": 0.324653,
+          "sharpe_ratio": -0.796018
+        },
+        {
+          "year": 2023,
+          "return_rate": 0.017502,
+          "benchmark_return": -0.113782,
+          "max_drawdown": 0.227161,
+          "benchmark_max_drawdown": 0.215132,
+          "tracking_error": 0.172747,
+          "information_ratio": 0.765942,
+          "volatility": 0.222979,
+          "sharpe_ratio": -0.100245
+        },
+        {
+          "year": 2024,
+          "return_rate": 0.279888,
+          "benchmark_return": 0.146833,
+          "max_drawdown": 0.340693,
+          "benchmark_max_drawdown": 0.144059,
+          "tracking_error": 0.370071,
+          "information_ratio": 0.363087,
+          "volatility": 0.469028,
+          "sharpe_ratio": 0.517028
+        },
+        {
+          "year": 2025,
+          "return_rate": 0.305605,
+          "benchmark_return": 0.176631,
+          "max_drawdown": 0.192712,
+          "benchmark_max_drawdown": 0.104915,
+          "tracking_error": 0.221661,
+          "information_ratio": 0.584764,
+          "volatility": 0.272835,
+          "sharpe_ratio": 0.978754
+        },
+        {
+          "year": 2026,
+          "return_rate": 0.032669,
+          "benchmark_return": 0.00658,
+          "max_drawdown": 0.069146,
+          "benchmark_max_drawdown": 0.038557,
+          "tracking_error": 0.162653,
+          "information_ratio": 1.500318,
+          "volatility": 0.199738,
+          "sharpe_ratio": 1.295816
+        }
+      ],
+      "fetch_time": "2026-02-23T00:46:00.454Z"
     }
   ]
 }
