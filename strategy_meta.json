@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:22:33.742Z",
-  "total_count": 35,
+  "fetch_time": "2026-02-23T06:22:39.246Z",
+  "total_count": 36,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -417,6 +417,17 @@
         "行业"
       ],
       "style": "行业",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60109504854249",
+      "name": "化工  ",
+      "tag": [],
+      "style": "",
       "create_date": "2016/09/26",
       "period": 5,
       "price": "close",
