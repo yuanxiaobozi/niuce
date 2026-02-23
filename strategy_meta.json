@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T04:49:34.875Z",
-  "total_count": 3,
+  "fetch_time": "2026-02-23T04:49:44.868Z",
+  "total_count": 4,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -35,6 +35,20 @@
         "小盘"
       ],
       "style": "小盘",
+      "create_date": "2016/09/05",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.58296791012624",
+      "name": "股息率（从大到小）",
+      "tag": [
+        "价值",
+        "稳健"
+      ],
+      "style": "价值,稳健",
       "create_date": "2016/09/05",
       "period": 5,
       "price": "close",
