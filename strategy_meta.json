@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:34:20.461Z",
-  "total_count": 65,
+  "fetch_time": "2026-02-23T06:34:55.699Z",
+  "total_count": 66,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -769,6 +769,19 @@
         "趋势"
       ],
       "style": "行业,趋势",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60109891474869",
+      "name": "房地产 ",
+      "tag": [
+        "行业"
+      ],
+      "style": "行业",
       "create_date": "2016/09/26",
       "period": 5,
       "price": "close",
