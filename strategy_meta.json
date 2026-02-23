@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T05:19:30.671Z",
-  "total_count": 8,
+  "fetch_time": "2026-02-23T05:19:39.993Z",
+  "total_count": 9,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -99,6 +99,19 @@
       "name": "历史贝塔（从小到大）",
       "tag": [],
       "style": "",
+      "create_date": "2016/09/05",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.58295998262113",
+      "name": "流通市值（从小到大）",
+      "tag": [
+        "小盘"
+      ],
+      "style": "小盘",
       "create_date": "2016/09/05",
       "period": 5,
       "price": "close",
