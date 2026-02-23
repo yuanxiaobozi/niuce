@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:36:05.709Z",
-  "total_count": 68,
+  "fetch_time": "2026-02-23T06:36:32.871Z",
+  "total_count": 69,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -804,6 +804,20 @@
       "name": "流动比率（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086446166613",
+      "name": "股息率（大）",
+      "tag": [
+        "价值",
+        "稳健"
+      ],
+      "style": "价值,稳健",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
