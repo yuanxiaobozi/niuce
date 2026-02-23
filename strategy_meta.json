@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T09:44:41.700Z",
-  "total_count": 109,
+  "fetch_time": "2026-02-23T09:44:52.105Z",
+  "total_count": 110,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1324,6 +1324,17 @@
         "小盘"
       ],
       "style": "小盘",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086498668281",
+      "name": "经营现金流量净额同比增长（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
