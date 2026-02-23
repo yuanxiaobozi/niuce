@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T08:14:09.644Z",
-  "total_count": 85,
+  "fetch_time": "2026-02-23T08:15:37.171Z",
+  "total_count": 86,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1024,6 +1024,17 @@
       "period": 20,
       "price": "close",
       "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086450701917",
+      "name": "负债资产率（小）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
       "trade_cost": 0.002
     }
   ]
