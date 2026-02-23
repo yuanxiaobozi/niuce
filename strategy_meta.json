@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:22:56.882Z",
-  "total_count": 143,
+  "fetch_time": "2026-02-23T12:23:06.143Z",
+  "total_count": 144,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1772,6 +1772,19 @@
       "name": "上证50-预期营收增长（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 5,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086574774482",
+      "name": "上证50-预期盈利增长（大）",
+      "tag": [
+        "上证50"
+      ],
+      "style": "上证50",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
