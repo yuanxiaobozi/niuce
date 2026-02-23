@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:28:54.718Z",
-  "total_count": 154,
+  "fetch_time": "2026-02-23T12:29:22.040Z",
+  "total_count": 155,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1924,6 +1924,20 @@
         "成长"
       ],
       "style": "沪深300,价值,成长",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086631307683",
+      "name": "沪深300-销售毛利率（大）",
+      "tag": [
+        "沪深300",
+        "价值"
+      ],
+      "style": "沪深300,价值",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
