@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:25:13.999Z",
-  "total_count": 48,
+  "fetch_time": "2026-02-23T06:25:23.933Z",
+  "total_count": 49,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -562,6 +562,17 @@
     {
       "id": "13496.R.60110166226762",
       "name": "计算机 ",
+      "tag": [],
+      "style": "",
+      "create_date": "2016/09/26",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.60110091473241",
+      "name": "电气设备",
       "tag": [],
       "style": "",
       "create_date": "2016/09/26",
