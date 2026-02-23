@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T08:24:16.860Z",
-  "total_count": 103,
+  "fetch_time": "2026-02-23T08:24:59.763Z",
+  "total_count": 104,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1247,6 +1247,19 @@
       "period": 5,
       "price": "close",
       "stock_num": 5,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086514583184",
+      "name": "10日股价振幅比率（大）",
+      "tag": [
+        "小盘"
+      ],
+      "style": "小盘",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
       "trade_cost": 0.002
     }
   ]
