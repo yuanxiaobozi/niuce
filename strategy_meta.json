@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T10:59:10.429Z",
-  "total_count": 133,
+  "fetch_time": "2026-02-23T10:59:22.517Z",
+  "total_count": 134,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1637,6 +1637,21 @@
         "价值"
       ],
       "style": "上证50,价值",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 5,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086537345265",
+      "name": "上证50-股息率（大）",
+      "tag": [
+        "上证50",
+        "价值",
+        "稳健"
+      ],
+      "style": "上证50,价值,稳健",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
