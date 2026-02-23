@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T10:57:38.751Z",
-  "total_count": 128,
+  "fetch_time": "2026-02-23T10:57:50.675Z",
+  "total_count": 129,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1571,6 +1571,17 @@
         "价值"
       ],
       "style": "上证50,价值",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 5,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086547994344",
+      "name": "上证50-销售净利率（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
