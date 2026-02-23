@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T06:26:36.584Z",
-  "total_count": 50,
+  "fetch_time": "2026-02-23T06:26:48.451Z",
+  "total_count": 51,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -592,6 +592,20 @@
       "period": 5,
       "price": "close",
       "stock_num": "25",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.82561150134136",
+      "name": "250日收益波动率（小）",
+      "tag": [
+        "价值",
+        "稳健"
+      ],
+      "style": "价值,稳健",
+      "create_date": "2017/06/13",
+      "period": 5,
+      "price": "close",
+      "stock_num": "50",
       "trade_cost": 0.002
     }
   ]
