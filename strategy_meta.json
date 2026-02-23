@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T08:12:13.817Z",
-  "total_count": 83,
+  "fetch_time": "2026-02-23T08:13:51.828Z",
+  "total_count": 84,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1000,6 +1000,17 @@
       "style": "",
       "create_date": "2017/06/13",
       "period": 5,
+      "price": "close",
+      "stock_num": "50",
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.82562329167843",
+      "name": "80日乖离率(小）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/13",
+      "period": 20,
       "price": "close",
       "stock_num": "50",
       "trade_cost": 0.002
