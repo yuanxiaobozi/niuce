@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:29:33.906Z",
-  "total_count": 156,
+  "fetch_time": "2026-02-23T12:30:01.239Z",
+  "total_count": 157,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1952,6 +1952,17 @@
         "价值"
       ],
       "style": "沪深300,价值",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086626871739",
+      "name": "沪深300-营业利润率（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
