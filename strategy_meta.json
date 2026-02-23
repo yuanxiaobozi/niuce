@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:28:23.805Z",
-  "total_count": 151,
+  "fetch_time": "2026-02-23T12:28:33.818Z",
+  "total_count": 152,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -1884,6 +1884,20 @@
         "大盘"
       ],
       "style": "大盘",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086637479295",
+      "name": "沪深300-5年净资产收益率（大）",
+      "tag": [
+        "沪深300",
+        "价值"
+      ],
+      "style": "沪深300,价值",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
