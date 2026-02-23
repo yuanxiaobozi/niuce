@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-23T12:46:43.626Z",
-  "total_count": 198,
+  "fetch_time": "2026-02-23T12:47:32.205Z",
+  "total_count": 199,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2496,6 +2496,17 @@
         "价值"
       ],
       "style": "沪深300,价值",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086667291918",
+      "name": "沪深300-经营现金流量净额同比增长（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
