@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:31:33.462Z",
-  "total_count": 206,
+  "fetch_time": "2026-02-24T00:31:40.087Z",
+  "total_count": 207,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2595,6 +2595,19 @@
         "成长"
       ],
       "style": "中证500,成长",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086749701024",
+      "name": "中证500-预期盈利增长（大）",
+      "tag": [
+        "中证500"
+      ],
+      "style": "中证500",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
