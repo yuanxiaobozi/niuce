@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:39:32.961Z",
-  "total_count": 250,
+  "fetch_time": "2026-02-24T00:40:45.209Z",
+  "total_count": 251,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3115,6 +3115,17 @@
         "中证1000"
       ],
       "style": "中证1000",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086866397490",
+      "name": "中证1000-动态市盈率（小）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
