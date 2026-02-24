@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:50:11.296Z",
-  "total_count": 380,
+  "fetch_time": "2026-02-24T07:50:19.403Z",
+  "total_count": 381,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4686,6 +4686,21 @@
       "period": 5,
       "price": "close",
       "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087129992991",
+      "name": "创业板-10日股价振幅比率（大）",
+      "tag": [
+        "创业",
+        "小盘"
+      ],
+      "style": "创业,小盘",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
       "model": 0,
       "trade_cost": 0.002
     }
