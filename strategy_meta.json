@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:36:45.960Z",
-  "total_count": 240,
+  "fetch_time": "2026-02-24T00:36:52.606Z",
+  "total_count": 241,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2999,6 +2999,17 @@
       "style": "",
       "create_date": "2017/06/19",
       "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086772144351",
+      "name": "中证500-扣非净资产回报率（大）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 20,
       "price": "close",
       "stock_num": 50,
       "trade_cost": 0.002
