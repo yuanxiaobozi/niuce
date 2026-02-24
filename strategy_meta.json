@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T08:08:43.375Z",
-  "total_count": 426,
+  "fetch_time": "2026-02-24T08:17:08.742Z",
+  "total_count": 427,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5290,6 +5290,18 @@
       "period": 5,
       "price": "close",
       "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087241848907",
+      "name": "交通运输-负债资产率（小）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 10,
       "model": 0,
       "trade_cost": 0.002
     }
