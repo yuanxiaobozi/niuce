@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:53:14.006Z",
-  "total_count": 390,
+  "fetch_time": "2026-02-24T07:53:27.331Z",
+  "total_count": 391,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4812,6 +4812,20 @@
       "name": "中小板-净资产增长（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087187649720",
+      "name": "中小板-营业收入增长（大）",
+      "tag": [
+        "成长"
+      ],
+      "style": "成长",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
