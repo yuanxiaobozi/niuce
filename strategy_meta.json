@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T08:17:27.394Z",
-  "total_count": 428,
+  "fetch_time": "2026-02-24T08:17:37.424Z",
+  "total_count": 429,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5312,6 +5312,21 @@
       "style": "",
       "create_date": "2017/06/19",
       "period": 20,
+      "price": "close",
+      "stock_num": 10,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087293443426",
+      "name": "交通运输-动态市盈率（小）",
+      "tag": [
+        "行业",
+        "价值"
+      ],
+      "style": "行业,价值",
+      "create_date": "2017/06/19",
+      "period": 5,
       "price": "close",
       "stock_num": 10,
       "model": 0,
