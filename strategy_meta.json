@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:44:26.258Z",
-  "total_count": 362,
+  "fetch_time": "2026-02-24T07:44:35.780Z",
+  "total_count": 363,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4443,6 +4443,18 @@
         "成长"
       ],
       "style": "创业,成长",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087099826657",
+      "name": "创业板-毛利润增长（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
