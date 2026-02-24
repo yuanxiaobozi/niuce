@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:45:22.268Z",
-  "total_count": 261,
+  "fetch_time": "2026-02-24T00:52:43.897Z",
+  "total_count": 262,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3255,6 +3255,17 @@
         "成长"
       ],
       "style": "中证1000,成长",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086838032856",
+      "name": "中证1000-毛利润增长（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
