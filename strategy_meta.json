@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:37:40.374Z",
-  "total_count": 340,
+  "fetch_time": "2026-02-24T07:37:55.029Z",
+  "total_count": 341,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4154,6 +4154,20 @@
       "period": 5,
       "price": "close",
       "stock_num": 50,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087071040718",
+      "name": "创业板-负债资产率（小）",
+      "tag": [
+        "创业"
+      ],
+      "style": "创业",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
       "model": 0,
       "trade_cost": 0.002
     }
