@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:38:04.917Z",
-  "total_count": 342,
+  "fetch_time": "2026-02-24T07:38:34.018Z",
+  "total_count": 343,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4178,6 +4178,18 @@
         "创业"
       ],
       "style": "创业",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087066584543",
+      "name": "创业板-股息率（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
