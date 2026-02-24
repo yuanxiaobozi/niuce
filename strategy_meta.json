@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:34:35.390Z",
-  "total_count": 224,
+  "fetch_time": "2026-02-24T00:34:44.316Z",
+  "total_count": 225,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2810,6 +2810,17 @@
         "中证1000"
       ],
       "style": "中证1000",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086811846098",
+      "name": "中证1000-销售净利率（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
