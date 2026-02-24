@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T06:56:28.770Z",
-  "total_count": 309,
+  "fetch_time": "2026-02-24T06:56:36.486Z",
+  "total_count": 310,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3795,6 +3795,21 @@
       "name": "中证红利-60日平均成交量（小）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 10,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086944295147",
+      "name": "中证红利-250日收益波动率（小）",
+      "tag": [
+        "大盘",
+        "价值",
+        "稳健"
+      ],
+      "style": "大盘,价值,稳健",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
