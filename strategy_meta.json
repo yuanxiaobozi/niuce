@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T06:50:44.516Z",
-  "total_count": 293,
+  "fetch_time": "2026-02-24T06:51:56.468Z",
+  "total_count": 294,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3621,6 +3621,17 @@
       "period": 5,
       "price": "close",
       "stock_num": 10,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086965728593",
+      "name": "主板-60日涨幅（小）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
       "trade_cost": 0.002
     }
   ]
