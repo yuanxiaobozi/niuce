@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:45:36.196Z",
-  "total_count": 369,
+  "fetch_time": "2026-02-24T07:46:47.207Z",
+  "total_count": 370,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4542,6 +4542,18 @@
       "period": 5,
       "price": "close",
       "stock_num": 40,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087155366600",
+      "name": "中小板-流动比率（大）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
       "model": 0,
       "trade_cost": 0.002
     }
