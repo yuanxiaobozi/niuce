@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T08:17:08.742Z",
-  "total_count": 427,
+  "fetch_time": "2026-02-24T08:17:27.394Z",
+  "total_count": 428,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5300,6 +5300,18 @@
       "style": "",
       "create_date": "2017/06/19",
       "period": 5,
+      "price": "close",
+      "stock_num": 10,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087295805931",
+      "name": "交通运输-扣非净资产回报率（大）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 20,
       "price": "close",
       "stock_num": 10,
       "model": 0,
