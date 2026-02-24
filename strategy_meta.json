@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:33:01.230Z",
-  "total_count": 216,
+  "fetch_time": "2026-02-24T00:33:08.383Z",
+  "total_count": 217,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2717,6 +2717,17 @@
         "价值"
       ],
       "style": "中证500,价值",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086725307809",
+      "name": "中证500-5年资产回报率（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
