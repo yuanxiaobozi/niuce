@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:30:15.710Z",
-  "total_count": 201,
+  "fetch_time": "2026-02-24T00:31:02.428Z",
+  "total_count": 202,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2537,6 +2537,19 @@
       "period": 5,
       "price": "close",
       "stock_num": 30,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086761987005",
+      "name": "中证500-60日平均成交量（小）",
+      "tag": [
+        "中证500"
+      ],
+      "style": "中证500",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
       "trade_cost": 0.002
     }
   ]
