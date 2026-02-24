@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:56:16.300Z",
-  "total_count": 399,
+  "fetch_time": "2026-02-24T07:56:39.513Z",
+  "total_count": 400,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4935,6 +4935,21 @@
         "价值"
       ],
       "style": "价值",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087168345081",
+      "name": "中小板-资产回报率（大）",
+      "tag": [
+        "价值",
+        "成长"
+      ],
+      "style": "价值,成长",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
