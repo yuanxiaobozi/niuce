@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:34:12.578Z",
-  "total_count": 221,
+  "fetch_time": "2026-02-24T00:34:20.187Z",
+  "total_count": 222,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2772,6 +2772,20 @@
       "name": "中证1000-5年净资产收益率（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086819843857",
+      "name": "中证1000-5年资产回报率（大）",
+      "tag": [
+        "中证1000",
+        "价值"
+      ],
+      "style": "中证1000,价值",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
