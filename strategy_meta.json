@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T06:56:10.580Z",
-  "total_count": 307,
+  "fetch_time": "2026-02-24T06:56:18.580Z",
+  "total_count": 308,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3775,6 +3775,17 @@
       "style": "",
       "create_date": "2017/06/19",
       "period": 5,
+      "price": "close",
+      "stock_num": 10,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086951694158",
+      "name": "中证红利-扣非净资产回报率（大）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 20,
       "price": "close",
       "stock_num": 10,
       "trade_cost": 0.002
