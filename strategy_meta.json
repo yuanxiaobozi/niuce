@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:51:21.697Z",
-  "total_count": 384,
+  "fetch_time": "2026-02-24T07:51:44.302Z",
+  "total_count": 385,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4737,6 +4737,21 @@
       "style": "",
       "create_date": "2017/06/19",
       "period": 20,
+      "price": "close",
+      "stock_num": 40,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087120003724",
+      "name": "创业板-250日收益波动率（小）",
+      "tag": [
+        "创业",
+        "稳健"
+      ],
+      "style": "创业,稳健",
+      "create_date": "2017/06/19",
+      "period": 5,
       "price": "close",
       "stock_num": 40,
       "model": 0,
