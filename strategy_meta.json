@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:38:16.220Z",
-  "total_count": 245,
+  "fetch_time": "2026-02-24T00:38:21.835Z",
+  "total_count": 246,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3062,6 +3062,17 @@
       "period": 20,
       "price": "close",
       "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086880570991",
+      "name": "中证红利-10日成交额（小）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 10,
       "trade_cost": 0.002
     }
   ]
