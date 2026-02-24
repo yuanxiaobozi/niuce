@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:53:20.923Z",
-  "total_count": 266,
+  "fetch_time": "2026-02-24T00:53:29.871Z",
+  "total_count": 267,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3310,6 +3310,19 @@
       "name": "中证1000-总资产周转率（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086825177551",
+      "name": "中证1000-存货周转率（大）",
+      "tag": [
+        "中证1000"
+      ],
+      "style": "中证1000",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
