@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T08:00:01.487Z",
-  "total_count": 405,
+  "fetch_time": "2026-02-24T08:00:36.108Z",
+  "total_count": 406,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5018,6 +5018,18 @@
       "period": 5,
       "price": "close",
       "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087239954915",
+      "name": "交通运输-流动比率（大）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 10,
       "model": 0,
       "trade_cost": 0.002
     }
