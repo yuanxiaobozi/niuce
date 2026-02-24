@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:01:40.364Z",
-  "total_count": 332,
+  "fetch_time": "2026-02-24T07:01:48.502Z",
+  "total_count": 333,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4052,6 +4052,21 @@
       "name": "创业板-5年资产回报率（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087081727182",
+      "name": "创业板-资产回报率（大）",
+      "tag": [
+        "创业",
+        "价值",
+        "成长"
+      ],
+      "style": "创业,价值,成长",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
