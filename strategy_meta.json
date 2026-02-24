@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:47:03.858Z",
-  "total_count": 372,
+  "fetch_time": "2026-02-24T07:47:25.619Z",
+  "total_count": 373,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4574,6 +4574,20 @@
       "name": "中小板-市净率（小）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087148549388",
+      "name": "中小板-市盈率（小）",
+      "tag": [
+        "价值"
+      ],
+      "style": "价值",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
