@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T08:04:47.866Z",
-  "total_count": 417,
+  "fetch_time": "2026-02-24T08:05:49.458Z",
+  "total_count": 418,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5167,6 +5167,21 @@
       "style": "小盘",
       "create_date": "2017/06/19",
       "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087214400343",
+      "name": "中小板-扣非净资产回报率（大）",
+      "tag": [
+        "价值",
+        "成长"
+      ],
+      "style": "价值,成长",
+      "create_date": "2017/06/19",
+      "period": 20,
       "price": "close",
       "stock_num": 30,
       "model": 0,
