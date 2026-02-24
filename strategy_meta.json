@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T08:06:56.385Z",
-  "total_count": 424,
+  "fetch_time": "2026-02-24T08:07:31.613Z",
+  "total_count": 425,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5262,6 +5262,18 @@
         "价值"
       ],
       "style": "价值",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087196714868",
+      "name": "中小板-分析师情绪指数（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
