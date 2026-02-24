@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:59:00.699Z",
-  "total_count": 401,
+  "fetch_time": "2026-02-24T07:59:25.224Z",
+  "total_count": 402,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4962,6 +4962,20 @@
       "name": "中小板-销售毛利率（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087164221220",
+      "name": "中小板-销售净利率（大）",
+      "tag": [
+        "价值"
+      ],
+      "style": "价值",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
