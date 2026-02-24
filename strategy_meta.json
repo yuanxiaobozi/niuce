@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:36:36.743Z",
-  "total_count": 239,
+  "fetch_time": "2026-02-24T00:36:45.960Z",
+  "total_count": 240,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2986,6 +2986,17 @@
         "中证1000"
       ],
       "style": "中证1000",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086774459400",
+      "name": "中证500-10日股价振幅比率（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
