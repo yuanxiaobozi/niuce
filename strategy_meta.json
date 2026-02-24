@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:45:28.837Z",
-  "total_count": 368,
+  "fetch_time": "2026-02-24T07:45:36.196Z",
+  "total_count": 369,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4526,6 +4526,18 @@
         "创业"
       ],
       "style": "创业",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087086110546",
+      "name": "创业板-5年净资产收益率（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
