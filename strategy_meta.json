@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T08:01:56.619Z",
-  "total_count": 410,
+  "fetch_time": "2026-02-24T08:02:14.623Z",
+  "total_count": 411,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5076,6 +5076,18 @@
         "行业"
       ],
       "style": "行业",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 10,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087229798657",
+      "name": "交通运输-流通市值（小）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
