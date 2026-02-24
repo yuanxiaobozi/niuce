@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T06:49:55.320Z",
-  "total_count": 289,
+  "fetch_time": "2026-02-24T06:50:06.786Z",
+  "total_count": 290,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3573,6 +3573,17 @@
         "成长"
       ],
       "style": "大盘,价值,成长",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 10,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086921872461",
+      "name": "中证红利-利润总额增长（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
