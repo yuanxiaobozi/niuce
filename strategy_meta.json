@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:41:20.378Z",
-  "total_count": 347,
+  "fetch_time": "2026-02-24T07:41:31.383Z",
+  "total_count": 348,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4246,6 +4246,21 @@
         "小盘"
       ],
       "style": "创业,小盘",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087055534157",
+      "name": "创业板-60日涨幅（小）",
+      "tag": [
+        "创业",
+        "反转"
+      ],
+      "style": "创业,反转",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
