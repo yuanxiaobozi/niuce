@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:38:53.727Z",
-  "total_count": 345,
+  "fetch_time": "2026-02-24T07:40:49.387Z",
+  "total_count": 346,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4217,6 +4217,20 @@
         "成长"
       ],
       "style": "创业,成长",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087060170335",
+      "name": "创业板-历史贝塔（小）",
+      "tag": [
+        "创业"
+      ],
+      "style": "创业",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
