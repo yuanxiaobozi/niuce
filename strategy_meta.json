@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:35:58.938Z",
-  "total_count": 234,
+  "fetch_time": "2026-02-24T00:36:05.918Z",
+  "total_count": 235,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2924,6 +2924,20 @@
       "name": "中证1000-流通市值（小）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086786773535",
+      "name": "中证1000-60日涨幅（小）",
+      "tag": [
+        "中证1000",
+        "反转"
+      ],
+      "style": "中证1000,反转",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
