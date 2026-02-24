@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T08:06:33.919Z",
-  "total_count": 422,
+  "fetch_time": "2026-02-24T08:06:43.522Z",
+  "total_count": 423,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5236,6 +5236,18 @@
         "小盘"
       ],
       "style": "小盘",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087201229559",
+      "name": "中小板-经营现金流量净额同比增长（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
