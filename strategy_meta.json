@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T08:05:59.079Z",
-  "total_count": 419,
+  "fetch_time": "2026-02-24T08:06:11.033Z",
+  "total_count": 420,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5196,6 +5196,20 @@
       "style": "价值",
       "create_date": "2017/06/19",
       "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087208795205",
+      "name": "中小板-80日乖离率(小）",
+      "tag": [
+        "反转"
+      ],
+      "style": "反转",
+      "create_date": "2017/06/19",
+      "period": 20,
       "price": "close",
       "stock_num": 30,
       "model": 0,
