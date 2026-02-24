@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:52:30.393Z",
-  "total_count": 388,
+  "fetch_time": "2026-02-24T07:53:00.718Z",
+  "total_count": 389,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4792,6 +4792,18 @@
       "period": 5,
       "price": "close",
       "stock_num": 40,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087192376141",
+      "name": "中小板-预期盈利增长（大）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
       "model": 0,
       "trade_cost": 0.002
     }
