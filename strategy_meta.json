@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T06:56:36.486Z",
-  "total_count": 310,
+  "fetch_time": "2026-02-24T06:56:43.387Z",
+  "total_count": 311,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3812,6 +3812,17 @@
       "style": "大盘,价值,稳健",
       "create_date": "2017/06/19",
       "period": 5,
+      "price": "close",
+      "stock_num": 10,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086946433946",
+      "name": "中证红利-80日乖离率(小）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 20,
       "price": "close",
       "stock_num": 10,
       "trade_cost": 0.002
