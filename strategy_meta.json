@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T08:05:49.458Z",
-  "total_count": 418,
+  "fetch_time": "2026-02-24T08:05:59.079Z",
+  "total_count": 419,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5182,6 +5182,20 @@
       "style": "价值,成长",
       "create_date": "2017/06/19",
       "period": 20,
+      "price": "close",
+      "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087211711520",
+      "name": "中小板-动态市盈率（小）",
+      "tag": [
+        "价值"
+      ],
+      "style": "价值",
+      "create_date": "2017/06/19",
+      "period": 5,
       "price": "close",
       "stock_num": 30,
       "model": 0,
