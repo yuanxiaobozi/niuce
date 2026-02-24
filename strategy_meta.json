@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:55:44.617Z",
-  "total_count": 397,
+  "fetch_time": "2026-02-24T07:56:05.808Z",
+  "total_count": 398,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4906,6 +4906,21 @@
       "name": "中小板-存货周转率（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 30,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087172727693",
+      "name": "中小板-5年净资产收益率（大）",
+      "tag": [
+        "大盘",
+        "价值"
+      ],
+      "style": "大盘,价值",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
