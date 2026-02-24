@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:02:24.074Z",
-  "total_count": 336,
+  "fetch_time": "2026-02-24T07:03:10.874Z",
+  "total_count": 337,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4100,6 +4100,19 @@
       "name": "创业板-营业利润率（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087073104300",
+      "name": "创业板-产权比率（大）",
+      "tag": [
+        "创业"
+      ],
+      "style": "创业",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
