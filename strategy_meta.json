@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T06:56:00.730Z",
-  "total_count": 306,
+  "fetch_time": "2026-02-24T06:56:10.580Z",
+  "total_count": 307,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3766,6 +3766,17 @@
       "period": 5,
       "price": "close",
       "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086954056582",
+      "name": "中证红利-10日股价振幅比率（大）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 10,
       "trade_cost": 0.002
     }
   ]
