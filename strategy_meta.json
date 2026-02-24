@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T06:36:29.675Z",
-  "total_count": 268,
+  "fetch_time": "2026-02-24T06:37:20.120Z",
+  "total_count": 269,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3334,6 +3334,21 @@
       "name": "中证红利-5年净资产收益率（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 10,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086913695903",
+      "name": "中证红利-存货周转率（大）",
+      "tag": [
+        "大盘",
+        "价值",
+        "稳健"
+      ],
+      "style": "大盘,价值,稳健",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
