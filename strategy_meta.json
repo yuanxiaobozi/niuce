@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T00:32:05.846Z",
-  "total_count": 209,
+  "fetch_time": "2026-02-24T00:32:13.032Z",
+  "total_count": 210,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -2630,6 +2630,20 @@
       "name": "中证500-营业收入增长（大）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086741811374",
+      "name": "中证500-毛利润增长（大）",
+      "tag": [
+        "中证500",
+        "成长"
+      ],
+      "style": "中证500,成长",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
