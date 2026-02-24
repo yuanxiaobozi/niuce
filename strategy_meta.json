@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:42:15.380Z",
-  "total_count": 350,
+  "fetch_time": "2026-02-24T07:42:26.376Z",
+  "total_count": 351,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4288,6 +4288,21 @@
       "name": "创业板-成交量（小）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087049414499",
+      "name": "创业板-总市值（小）",
+      "tag": [
+        "创业",
+        "小盘"
+      ],
+      "style": "创业,小盘",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
