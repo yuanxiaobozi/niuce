@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T06:53:36.062Z",
-  "total_count": 303,
+  "fetch_time": "2026-02-24T06:55:35.787Z",
+  "total_count": 304,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -3727,6 +3727,19 @@
       "name": "主板-10日成交额（小）",
       "tag": [],
       "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 50,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83086959133822",
+      "name": "主板-总市值（小）",
+      "tag": [
+        "小盘"
+      ],
+      "style": "小盘",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
