@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:01:48.502Z",
-  "total_count": 333,
+  "fetch_time": "2026-02-24T07:01:58.513Z",
+  "total_count": 334,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4067,6 +4067,17 @@
         "成长"
       ],
       "style": "创业,价值,成长",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087079682172",
+      "name": "创业板-销售毛利率（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
