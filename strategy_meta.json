@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T07:44:10.278Z",
-  "total_count": 360,
+  "fetch_time": "2026-02-24T07:44:18.250Z",
+  "total_count": 361,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -4416,6 +4416,18 @@
         "创业"
       ],
       "style": "创业",
+      "create_date": "2017/06/19",
+      "period": 5,
+      "price": "close",
+      "stock_num": 40,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087104298784",
+      "name": "创业板-净资产增长（大）",
+      "tag": [],
+      "style": "",
       "create_date": "2017/06/19",
       "period": 5,
       "price": "close",
