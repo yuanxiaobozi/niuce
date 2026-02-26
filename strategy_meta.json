@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-26T15:48:13.375Z",
-  "total_count": 430,
+  "fetch_time": "2026-02-26T15:48:44.891Z",
+  "total_count": 431,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5339,6 +5339,18 @@
       "style": "",
       "create_date": "2017/06/19",
       "period": 20,
+      "price": "close",
+      "stock_num": 10,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087288805433",
+      "name": "交通运输-250日收益波动率（小）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 5,
       "price": "close",
       "stock_num": 10,
       "model": 0,
