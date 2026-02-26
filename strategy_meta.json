@@ -1,6 +1,6 @@
 {
-  "fetch_time": "2026-02-24T08:17:37.424Z",
-  "total_count": 429,
+  "fetch_time": "2026-02-26T15:48:13.375Z",
+  "total_count": 430,
   "strategies": [
     {
       "id": "13496.R.58290292616553",
@@ -5327,6 +5327,18 @@
       "style": "行业,价值",
       "create_date": "2017/06/19",
       "period": 5,
+      "price": "close",
+      "stock_num": 10,
+      "model": 0,
+      "trade_cost": 0.002
+    },
+    {
+      "id": "13496.R.83087290831387",
+      "name": "交通运输-80日乖离率(小）",
+      "tag": [],
+      "style": "",
+      "create_date": "2017/06/19",
+      "period": 20,
       "price": "close",
       "stock_num": 10,
       "model": 0,
